@@ -10,7 +10,6 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 import '../static/css/style.css';
 import '../static/css/materials.css';
 import '../static/js/lunbotu.js';
-import '../static/js/index.js';
 
 Vue.prototype.axios=axios
 
