@@ -18,4 +18,11 @@ npm run build
 npm run build --report
 ```
 
+```
+# github 更新项目
+# git status
+# git add . 
+# git commit -m "text"
+# git push origin master 
+```
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
