@@ -7,7 +7,6 @@ import Materials from '@/components/Materials'
 import notes from '@/components/notes'
 import chitchat from '@/components/chitchat'
 import UserInfo from '@/components/UserInfo'
-import index from '@/components/index'
 
 Vue.use(Router)
 
@@ -28,7 +27,6 @@ export default new Router({
 				{path:'/notes',component:notes},
 				{path:'/chitchat',component:chitchat},
 				{path:'/UserInfo',component:UserInfo},
-				{path:'/index',component:index}
 			]
     },
   ],

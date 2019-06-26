@@ -53,10 +53,58 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.notes {
 		width: 1200px;
 		height: 595px;
 		background-color: #FFFFFF;
 	}
+	.con_box_s {
+		text-align: center;
+		/* background-color:rgba(0,0,255,0.5); */
+		/* background-color: #FFFFFF; */
+		margin-top: 5px;
+		padding: 5px;
+		border-radius: 7px;
+		height: auto;
+		
+	}
+	.content_box {
+		background-color:rgba(225,255,255,0.5);
+	}
+	.pl {
+		width: 100px;
+		padding: 5px;
+	}
+	
+	.con_text {
+		text-align: center;
+		margin: 0px;
+		padding: 0px;
+		overflow: hidden;
+		margin-left: 2px;
+	}
+	
+	.con_box_s p {
+		font-size: 12px;
+		color: #999;
+		overflow: hidden;
+		height: 30px;
+		margin-top: 10px;
+		margin-bottom: 5px;
+	}
+	
+	.con_box_s a {
+		text-decoration: none;
+	}
+	
+	.con_text .content_box:hover {
+		box-shadow: 0 4px 2px 2px rgba(0, 0, 0, 0.2);
+	}
+	.word {
+			font-weight: bold;
+			height: 15px;
+			line-height: 15px;
+			margin-top: 10px;
+		}
 </style>

@@ -32,10 +32,6 @@
 				</div>
 			</div>
 		</nav>
-
-		
-
-
 		<!-- 	编写者：LaoDeng
 		注：出现"_" 为自定义类名 -->
 		<div>
@@ -56,7 +52,6 @@
 						{name:'学习资料',url:'/Materials'},
 						{name:'往期新闻',url:'/notes'},
 						{name:'个人中心',url:'/UserInfo'},
-						{name:'index',url:'/index'},
 						]
 			}
 		}

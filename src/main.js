@@ -8,8 +8,16 @@ import axios from 'axios' //引入axios
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import '../static/css/style.css';
-import '../static/css/materials.css';
 import '../static/js/lunbotu.js';
+
+// 全局引入子组件
+import newsby from './components/HomeChild/newsby.vue';
+import daily from './components/HomeChild/daily.vue';
+import hright from './components/HomeChild/hright.vue';
+// 声明子组件
+Vue.component('newsby',newsby);
+Vue.component('daily',daily);
+Vue.component('hright',hright);
 
 Vue.prototype.axios=axios
 
