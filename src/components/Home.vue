@@ -129,4 +129,25 @@
 		transition: opacity 0.3s;
 
 	}
+	.statistical {
+		float: right;
+		padding-top: 38px;
+		color: #999999;
+	}
+	.lins {
+	
+		margin-bottom: 5px !important;
+		height: 4px;
+		background-color: #999999;
+	}
+	._plate-head {
+		background-color: #FFFFFF;
+	}
+	
+	._plate-png {
+		/* background-image: url(img/touzhu.png); */
+		background-position: 15px 27px;
+		background-repeat: no-repeat;
+	
+	}
 </style>

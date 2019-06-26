@@ -71,34 +71,7 @@
 				// 密码显示切换
 			}
 			
-		},
-		
-		
-		
-		// onclick: function() {
-		// 	if (this.btn == this.btn) {
-		// 		this.btn = 'glyphicon-eye-open'
-		// 	}
-		// 	if (this.pas == this.pas) {
-		// 		this.pas = 'text'
-		// 	}
-		// },
-		// onrevom: function() {
-		// 	if (this.btn == this.btn) {
-		// 		this.btn = 'glyphicon-eye-close'
-		// 	}
-		// 	if (this.pas == this.pas) {
-		// 		this.pas = 'password'
-		// 	}
-		// },
-		
-		
-		
-		
-		
-		
-		
-		
+		},	
 	}
 </script>
 
@@ -108,5 +81,15 @@
 		border-radius: 2px;
 		padding-bottom: 10px;
 	}
-	
+	._line {
+		width: 100%;
+		height: 5px;
+		display: block;
+		float: left;
+		border-bottom: 1px solid #EAEAEA;
+		border-top: 1px solid #EAEAEA;
+		margin-top: 6px;
+		padding: 0px;
+		margin-bottom: -5px;
+	}
 </style>

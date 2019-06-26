@@ -17,7 +17,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav header_tab">
 						
-						<li v-for="titl in titles"><a href="#" :key="titl.id">
+						<li v-for="(titl,index) in titles"><a href="#" :key="titl.index">
 								<router-link :to="titl.url">{{titl.name}}</router-link> 
 							</a></li>
 					</ul>
@@ -59,5 +59,17 @@
 </script>
 
 <style scoped>
-
+	.navbar-brand {
+		padding: 0px;
+	}
+	
+	.logo {
+		width: 180px;
+		height: 48px;
+	}
+	
+	.navbar {
+		margin-bottom: 1px !important;
+	
+	}
 </style>

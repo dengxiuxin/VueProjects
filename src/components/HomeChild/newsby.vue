@@ -77,5 +77,79 @@
 	}
 </script>
 
-<style>
+<style scoped>
+	._box-tent h4 a {
+		text-decoration: none;
+		color: #000000;
+	}
+	
+	._box-tent h4 a:hover {
+		color: #337AB7;
+	}
+	
+	._box-tent p {}
+	
+	#tabss {
+		width: 100%;
+		position: absolute;
+		bottom: 20px;
+		left: -20px;
+	}
+	
+	.tabs {
+		float: left;
+		margin-right: 10px;
+		width: 20px;
+		height: 20px;
+		border: 3px solid rgba(184, 178, 182, .8);
+		border-radius: 50%;
+		background: #989196;
+		cursor: pointer;
+		list-style: none;
+	}
+	
+	.taba {
+		list-style: none;
+		left: 200px;
+		top: 430px;
+		color: #999999;
+		position: absolute;
+	}
+	
+	.actives {
+		background: #fff;
+		border-color: #999497;
+	}
+	
+	.btns {
+		position: absolute;
+		top: 45%;
+		margin-top: -35px;
+		width: 40px;
+		height: 70px;
+		color: #d6d3d5;
+		font-size: 36px;
+		line-height: 70px;
+		text-align: center;
+		cursor: pointer;
+	}
+	
+	.btns:hover {
+		background: rgba(127, 120, 125, 0.8);
+	}
+	
+	.items {
+		position: absolute;
+	
+	}
+	
+	.items img {
+		height: 420px;
+	}
+	#containers {
+		width: 350px;
+		height: 480px;
+		position: relative;
+		overflow: hidden;
+	}
 </style>
