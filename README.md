@@ -30,4 +30,14 @@ npm run build --report
 # git commit -m "text"
 # git push origin master 
 ```
+
+```
+#2019-06-26 更新
+# 主页的改动
+# 将主页的元素划分为子组件
+# 修改了切换代码
+# 让页面结构更加清晰可见
+
+
+```
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
