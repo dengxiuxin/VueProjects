@@ -11,7 +11,7 @@
 		<ul class="row _new"  >
 			<li class="col-md-12 col-ms-12 col-xs-12">
 				<div class="col-md-2 col-ms-3 col-xs-3">
-					<img src="../../../static/images/banner-b_2.png" class="img-rounded img-responsive">
+					<img src="../../../static/img/touxianga.jpg" class="img-rounded img-responsive">
 					<h5 class="text-center">我也不知</h5>
 				</div>
 				<div class="col-md-10 col-ms-9 col-xs-9">
@@ -23,7 +23,7 @@
 			</li>
 			<li class="col-md-12 col-ms-12 col-xs-12">
 				<div class="col-md-2 col-ms-3 col-xs-3">
-					<img src="../../../static/images/banner-b_2.png" class="img-rounded img-responsive">
+					<img src="../../../static/img/touxianga.jpg" class="img-rounded img-responsive">
 					<h5 class="text-center">我也不知</h5>
 				</div>
 				<div class="col-md-10 col-ms-9 col-xs-9">
@@ -35,7 +35,7 @@
 			</li>
 			<li class="col-md-12 col-ms-12 col-xs-12">
 				<div class="col-md-2 col-ms-3 col-xs-3">
-					<img src="../../../static/images/banner-b_2.png" class="img-rounded img-responsive">
+					<img src="../../../static/img/touxianga.jpg" class="img-rounded img-responsive">
 					<h5 class="text-center">我也不知</h5>
 				</div>
 				<div class="col-md-10 col-ms-9 col-xs-9">
@@ -47,7 +47,7 @@
 			</li>
 			<li class="col-md-12 col-ms-12 col-xs-12">
 				<div class="col-md-2 col-ms-3 col-xs-3">
-					<img src="../../../static/images/banner-b_2.png" class="img-rounded img-responsive">
+					<img src="../../../static/img/touxianga.jpg" class="img-rounded img-responsive">
 					<h5 class="text-center">我也不知</h5>
 				</div>
 				<div class="col-md-10 col-ms-9 col-xs-9">
@@ -103,15 +103,16 @@
 		margin-bottom: 5px;
 		font-weight: bold;
 	}
-	._new img {
-		margin-left: 30px;
-	}
-	
 	._new span {
 		margin-top: 5px;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 2;
 		overflow: hidden;
+	}
+	@media (max-width:480px) {
+		._new h5 {
+			font-size: 8px;
+		}
 	}
 </style>
