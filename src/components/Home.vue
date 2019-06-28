@@ -72,8 +72,9 @@
 
 		},
 		mounted: function() {
-			this.axios.get('./../static/json/top.json')
+			this.axios.get('/api/user/addUser')
 				.then(response => {
+					console.log(response)
 					this.news = response.data.result
 				})
 			this.axios.get('./../static/json/keji.json')
