@@ -17,7 +17,7 @@
 		
 		
 		
-		<div class="container">
+		<div class="container" style="background-color: #FFFFFF;">
 			<div class="row">
 				<div class="col-md-9 col-xs-12 col-sm-12 _box"><!-- 左边 -->			
 						<div class="col-md-12 col-xs-12 col-sm-12">
@@ -136,7 +136,7 @@
 	}
 	.lins {
 	
-		margin-bottom: 5px !important;
+		margin-bottom: 1px !important;
 		height: 4px;
 		background-color: #999999;
 	}

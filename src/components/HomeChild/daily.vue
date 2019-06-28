@@ -114,5 +114,9 @@
 		._new h5 {
 			font-size: 8px;
 		}
+	._cla-box li {
+		width: 18%;
+		font-size: 8px;
+	}	
 	}
 </style>

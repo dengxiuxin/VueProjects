@@ -47,4 +47,10 @@ npm run build --report
 # 使用swiper轮播图插件
 # 删减多余的图片文件夹
 ```
+
+```
+#2019-06-28 更新
+# 新增插件 Element-ul
+# add博客中心子组件
+```
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

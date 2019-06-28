@@ -28,44 +28,16 @@
 				<br />
 				<h1>控制台</h1>
 			</div>
-			<div class="btn-group bt">
-				<button type="button" class="btn btn-info btn-lg dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true"
-				 aria-expanded="false">
-					文章 <span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu dr_menu">
-					<li><a href="#">Action</a></li>
-					<li><a href="#">Another action</a></li>
-					<li><a href="#">Something else here</a></li>
-					<li><a href="#">Separated link</a></li>
-				</ul>
+			<el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+
+
+			<div>
 			</div>
-			<div class="btn-group bt">
-				<button type="button" class="btn btn-info btn-lg dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true"
-				 aria-expanded="false">
-					分类 <span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu dr_menu">
-					<li><a href="#">Action</a></li>
-					<li><a href="#">Another action</a></li>
-					<li><a href="#">Something else here</a></li>
-					<li><a href="#">Separated link</a></li>
-				</ul>
-			</div>
-			<div class="btn-group bt">
-				<button type="button" class="btn btn-info btn-lg dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true"
-				 aria-expanded="false">
-					标签 <span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu dr_menu">
-					<li><a href="#">Action</a></li>
-					<li><a href="#">Another action</a></li>
-					<li><a href="#">Something else here</a></li>
-					<li><a href="#">Separated link</a></li>
-				</ul>
-			</div>
-			<div></div>
 		</div>
+
+		<addblog></addblog>
+		<!-- 添加博客组件 -->
+
 		<router-view></router-view>
 	</div>
 </template>
@@ -75,33 +47,53 @@
 		name: 'hello',
 		data() {
 			return {
-
-				name: '个人中心',
-				news:[]
-
+				name: "博客中心",
+				data: [{
+					label: '列表',
+					children: [{
+						label: '子列表',
+					}]
+				},{
+					label: '列表',
+					children: [{
+						label: '子列表',
+					}]
+				},
+				{
+					label: '列表',
+					children: [{
+						label: '子列表',
+					}, {
+						label: '子列表',
+					}]
+				}, {
+					label: '列表',
+					children: [{
+						label: '子列表',
+					}, {
+						label: '子列表',
+					}]
+				}],
+				defaultProps: {
+					children: 'children',
+					label: 'label'
+				}
 			}
 		},
 		methods: {
-		},
+			handleNodeClick() {
+
+			}
+		}
 	}
 </script>
 
 <style scoped>
-	.dr_menu {
-		width: 100%;
-		margin-top: -2px;
-	}
-
-	.bt {
-		width: 100% !important;
-		padding: 0 2px;
-		margin-bottom: 10px;
-	}
-
 	.hello {
 		border: 5px solid #CC0000;
 		float: left;
 		width: 100%;
+
 	}
 
 	.header {
@@ -170,6 +162,16 @@
 		letter-spacing: 8px;
 		text-align: center;
 
+	}
+
+	@media (max-width:990px) {
+		.left {
+			float: left;
+			background-image: linear-gradient(to top, #FFFFCC, #ffffff);
+			border-right: 2px solid #CC1111;
+			padding: 0 !important;
+			height: 946px;
+		}
 	}
 
 	@media (max-width:430px) {

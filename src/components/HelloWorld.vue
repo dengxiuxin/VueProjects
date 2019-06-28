@@ -51,7 +51,7 @@
 						{name:'主页',url:'/home'},
 						{name:'学习资料',url:'/Materials'},
 						{name:'往期新闻',url:'/notes'},
-						{name:'个人中心',url:'/UserInfo'},
+						{name:'博客中心',url:'/UserInfo'},
 						]
 			}
 		}
