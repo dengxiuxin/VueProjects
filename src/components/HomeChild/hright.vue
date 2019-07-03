@@ -41,59 +41,25 @@
 			<div class="col-md-12 col-xs-12 col-sm-12">
 				<h3>新秀<img src="../../../static/img/xuankuang_.png" style="float: right; width: 25px; height: 25px;"></h3>
 				<ul class="row _figure _fih">
-					<li class="col-md-12 col-ms-12 col-xs-12">
-						<img src="../../../static/img/touxianga.jpg" class="img-thumbnail">
-						<h5>鞋带儿</h5><span class="label label-danger">New</span>
+					<li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in top.data" v-if='index<=6' :key="index">
+						<img :src="item.img" class="img-thumbnail">
+						<h5>{{item.name}}</h5><span class="label label-danger">New</span>
 						<small>
-							来自本地的一位程序猿，技术咱也不知道，咱也不敢问！
+							{{item.sdasd}}
 						</small>
 					</li>
-					<li class="col-md-12 col-ms-12 col-xs-12">
-						<img src="../../../static/img/touxiang.jpg" class="img-thumbnail">
-						<h5>无为君</h5><span class="label label-danger">New</span>
-						<small>
-							我也许不是渣渣辉，但我一定是渣渣！
-						</small>
-					</li>
-					<li class="col-md-12 col-ms-12 col-xs-12">
-						<img src="../../../static/img/ye.jpg" class="img-thumbnail">
-						<h5>我会喊溜溜溜</h5><span class="label label-danger">New</span>
-						<small>
-							大河向东流，而你像下流，嘿嘿嘿~！
-						</small>
-					</li>
-					<li class="col-md-12 col-ms-12 col-xs-12">
-						<img src="../../../static/img/user.png" class="img-thumbnail">
-						<h5>像风一样的男</h5><span class="label label-danger">New</span>
-						<small>
-							如果还能遇见你，那我一定一定会给你一个...
-						</small>
-					</li>
+					
 				</ul>
 			</div>
 			<p class="_line"></p>
 			<div class="col-md-12 col-xs-12 col-sm-12">
 				<h3>热文榜<img src="../../../static/img/bianqian_.png" style="float: right; width: 25px; height: 25px;"></h3>
 				<ul class="row _figure _s">
-					<li class="col-md-12 col-ms-12 col-xs-12">
-						<p class="label label-danger">1</p>
+					<li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in top.data" v-if='index<=15' :key="index">
+						<p class="label label-danger">{{index+1}}</p>
 						<p class="_b">
-							<a href="#">我是我是不一样的</a>
+							<a :href="item.url">{{item.title}}</a>
 			
-						</p>
-					</li>
-					<li class="col-md-12 col-ms-12 col-xs-12">
-						<p class="label label-danger">1</p>
-						<p class="_b">
-							<a href="#">我是我是不一样的</a>
-								
-						</p>
-					</li>
-					<li class="col-md-12 col-ms-12 col-xs-12">
-						<p class="label label-danger">1</p>
-						<p class="_b">
-							<a href="#">我是我是不一样的</a>
-								
 						</p>
 					</li>
 				</ul>
@@ -131,7 +97,8 @@
 				// 密码显示切换
 			}
 			
-		},	
+		},
+		props:['top'],
 	}
 </script>
 
@@ -182,7 +149,7 @@
 	._figure li small {
 		position: absolute;
 		padding: 5px;
-		top: 35px;
+		top: 24px;
 	}
 	._figure span {
 		position: absolute;

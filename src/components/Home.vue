@@ -32,7 +32,7 @@
 
 
 				<div class="col-md-3 col-xs-12 col-sm-12"><!-- 右边-->
-					<hright></hright>
+					<hright v-bind:top="top"></hright>
 				</div>
 				
 			</div>
@@ -62,8 +62,7 @@
 			return {				
 				content: 'hot',
 
-				hot: [],  //top
-				text: [], //text
+				top: [],  //top
 				keji: [], //keji
 				news:[],
 				
@@ -75,7 +74,12 @@
 					.then(response => {
 						this.news = response.data.result
 						console.log(this.news.data)
-					})
+					}),
+				this.axios.get('./../static/json/top.json')
+				.then(response => {
+					this.top = response.data.result
+					console.log(this.top.data)
+				})
 		},
 	}
 </script>

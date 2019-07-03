@@ -25,8 +25,8 @@
 
 			<div class=" col-lg-7 col-md-6 col-sm-6 col-xs-12">
 				<div class="_box-tent col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in news.data" v-if='index<=4' :key="index">
-						<h4><a :href="item.url">{{item.title}}</a></h4>
-						<small><p>{{item.title}}</p></small>
+						<h4><a :href="item.curl">{{item.content}}</a></h4>
+						<small><p>{{item.name}}</p></small>
 						<hr style="background-color: #999999;" />
 					</div>
 
