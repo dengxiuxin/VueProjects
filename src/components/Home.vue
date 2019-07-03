@@ -25,7 +25,7 @@
 							<!-- 这是轮播和头条子组件 -->
 						</div>
 						<div class="col-md-12 col-xs-12 col-sm-12">
-							<daily></daily>	
+							<daily v-bind:keji="keji"></daily>	
 							<!-- 这是左下的博条 -->
 						</div>
 				</div>
@@ -73,12 +73,17 @@
 				this.axios.get('./../static/json/imgs.json')
 					.then(response => {
 						this.news = response.data.result
-						console.log(this.news.data)
+						
 					}),
 				this.axios.get('./../static/json/top.json')
 				.then(response => {
 					this.top = response.data.result
-					console.log(this.top.data)
+					
+				}),
+				this.axios.get('./../static/json/yule.json')
+				.then(response => {
+					this.keji = response.data.result
+					
 				})
 		},
 	}

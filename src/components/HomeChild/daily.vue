@@ -9,56 +9,24 @@
 		<hr style="background-color: #999999; margin: 0px; padding: 0px;" />
 
 		<ul class="row _new"  >
-			<li class="col-md-12 col-ms-12 col-xs-12">
+			<li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in keji.data" v-if='index<=num' :key="index">
 				<div class="col-md-2 col-ms-3 col-xs-3">
-					<img src="../../../static/img/touxianga.jpg" class="img-rounded img-responsive">
-					<h5 class="text-center">我也不知</h5>
+					<img :src="item.pic_img" class="img-rounded img-responsive">
+					<h5 class="text-center">{{item.author_name}}</h5>
 				</div>
 				<div class="col-md-10 col-ms-9 col-xs-9">
-					<h4>你说是什么就是什么吧</h4>
-					<small><b>什么东西</b></small>
+					<h4>{{item.title}}</h4>
+					<small><b>{{item.date}}</b></small>
 					<br />
-					<span>爱咋咋地吧 什么爱咋咋地吧 什么爱咋咋地吧 什么爱咋咋地吧 什么爱咋咋地吧 什么爱咋咋地吧 什么爱咋咋地吧 什么</span>
-				</div>
-			</li>
-			<li class="col-md-12 col-ms-12 col-xs-12">
-				<div class="col-md-2 col-ms-3 col-xs-3">
-					<img src="../../../static/img/touxianga.jpg" class="img-rounded img-responsive">
-					<h5 class="text-center">我也不知</h5>
-				</div>
-				<div class="col-md-10 col-ms-9 col-xs-9">
-					<h4>你说是什么就是什么吧</h4>
-					<small><b>什么东西</b></small>
-					<br />
-					<span>爱咋咋地吧 什么</span>
-				</div>
-			</li>
-			<li class="col-md-12 col-ms-12 col-xs-12">
-				<div class="col-md-2 col-ms-3 col-xs-3">
-					<img src="../../../static/img/touxianga.jpg" class="img-rounded img-responsive">
-					<h5 class="text-center">我也不知</h5>
-				</div>
-				<div class="col-md-10 col-ms-9 col-xs-9">
-					<h4>你说是什么就是什么吧</h4>
-					<small><b>什么东西</b></small>
-					<br />
-					<span>爱咋咋地吧 什么</span>
-				</div>
-			</li>
-			<li class="col-md-12 col-ms-12 col-xs-12">
-				<div class="col-md-2 col-ms-3 col-xs-3">
-					<img src="../../../static/img/touxianga.jpg" class="img-rounded img-responsive">
-					<h5 class="text-center">我也不知</h5>
-				</div>
-				<div class="col-md-10 col-ms-9 col-xs-9">
-					<h4>你说是什么就是什么吧</h4>
-					<small><b>什么东西</b></small>
-					<br />
-					<span>爱咋咋地吧 什么</span>
+					<span><a :href="item.url">详情</a></span>
 				</div>
 			</li>
 		</ul>
-		<hr />
+		<div class="sdl col-md-12 col-ms-12 col-xs-12">
+			<button class="btn-default btn btn-info text-center" @click="loading">加载更多</button>
+			<button class="btn-default btn btn-info text-center" @click="cancel" v-if="num>6">取消上一步</button>
+		</div>
+		
 	</div>
 </template>
 
@@ -66,13 +34,31 @@
 	export default {
 		data() {
 			return {
-
+				num: 4,
+				sum: 5
 			}
-		}
+		},
+		methods:{
+			loading(){
+				this.num += this.sum,
+				console.log("num"+this.num)
+				console.log("sum"+this.sum)
+			},
+			cancel(){
+				if(!this.num <=5){
+					this.num -= this.sum
+				}	
+			}
+		},
+		props:['keji'],
 	}
 </script>
 
 <style scoped>
+	.sdl {
+		text-align: center;
+		padding: 15px;
+	}
 	._cla-box {
 		background-image: url(../../../static/img/hotnew.png);
 		height: 38px;
