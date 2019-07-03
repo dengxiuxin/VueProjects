@@ -5,64 +5,31 @@
 
 			<div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
 				<swiper :options="swiperOption" id="containers">
-					<swiper-slide><a class="items" href="#"><img src="../../../static/img/a1.jpg" /></a></swiper-slide>
-					<swiper-slide><a class="items" href="#"><img src="../../../static/img/a2.jpg" /></a></swiper-slide>
-					<swiper-slide><a class="items" href="#"><img src="../../../static/img/a3.jpg" /></a></swiper-slide>
-					<swiper-slide><a class="items" href="#"><img src="../../../static/img/a4.jpg" /></a></swiper-slide>
-					<swiper-slide><a class="items" href="#"><img src="../../../static/img/a5.jpg" /></a></swiper-slide>
+					<swiper-slide v-for="(item,index) in news.data" v-if='index<=4' :key="index">
+						<a class="items" href="#">
+						<img :src="'../../../'+item.img" />
+						</a>
+					</swiper-slide>
+
 					<div class="swiper-pagination" slot="pagination"></div>
 					<!-- <div class="swiper-button-prev" slot="button-prev"></div>
 					<div class="swiper-button-next" slot="button-next"></div> -->
 				</swiper>
 			</div>
 			
-				
+			
 			
 
 			<!-- 轮播图 -->
 
 
 			<div class=" col-lg-7 col-md-6 col-sm-6 col-xs-12">
-				<!-- <div class="_box-tent col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in news.data" v-if='index<=4' :key="item.id">
-						<h4><a :href="item.url">{{item.author_name}}</a></h4>
+				<div class="_box-tent col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in news.data" v-if='index<=4' :key="index">
+						<h4><a :href="item.url">{{item.title}}</a></h4>
 						<small><p>{{item.title}}</p></small>
 						<hr style="background-color: #999999;" />
-					</div> -->
-				<div class="_box-tent col-md-12 col-ms-12 col-xs-12">
-					<h4><a>你哈</a></h4>
-					<small>
-						<p>难受吗 你是什么东西啊</p>
-					</small>
-					<hr style="background-color: #999999;" />
-				</div>
-				<div class="_box-tent col-md-12 col-ms-12 col-xs-12">
-					<h4><a>你哈</a></h4>
-					<small>
-						<p>难受吗 你是什么东西啊</p>
-					</small>
-					<hr style="background-color: #999999;" />
-				</div>
-				<div class="_box-tent col-md-12 col-ms-12 col-xs-12">
-					<h4><a>你哈</a></h4>
-					<small>
-						<p>难受吗 你是什么东西啊</p>
-					</small>
-					<hr style="background-color: #999999;" />
-				</div>
-				<div class="_box-tent col-md-12 col-ms-12 col-xs-12">
-					<h4><a>你哈</a></h4>
-					<small>
-						<p>难受吗 你是什么东西啊</p>
-					</small>
-					<hr style="background-color: #999999;" />
-				</div>
-				<div class="_box-tent col-md-12 col-ms-12 col-xs-12">
-					<h4><a>你哈</a></h4>
-					<small>
-						<p>难受吗 你是什么东西啊</p>
-					</small>
-					<hr style="background-color: #999999;" />
-				</div>
+					</div>
+
 			</div>
 		</div>
 	</div>
@@ -86,11 +53,19 @@
 					navigation: {
 						nextEl: '.swiper-button-next',
 						prevEl: '.swiper-button-prev'
-					}
+					},
 				}
 
 			}
-		}
+		},
+		// mounted: function() {
+		// 	this.axios.get('./../static/json/imgs.json')
+		// 		.then(response => {
+		// 			this.news = response.data.result
+		// 			console.log(this.news)
+		// 		})
+		// },
+		props:['news'],
 	}
 </script>
 

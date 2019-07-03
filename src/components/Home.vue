@@ -21,7 +21,7 @@
 			<div class="row">
 				<div class="col-md-9 col-xs-12 col-sm-12 _box"><!-- 左边 -->			
 						<div class="col-md-12 col-xs-12 col-sm-12">
-							<newsby></newsby>
+							<newsby v-bind:news="news"></newsby>
 							<!-- 这是轮播和头条子组件 -->
 						</div>
 						<div class="col-md-12 col-xs-12 col-sm-12">
@@ -62,33 +62,20 @@
 			return {				
 				content: 'hot',
 
-				news: [], //yule 
 				hot: [],  //top
 				text: [], //text
 				keji: [], //keji
-
+				news:[],
 				
 			}
 
 		},
 		mounted: function() {
-			this.axios.get('/api/user/addUser')
-				.then(response => {
-					console.log(response)
-					this.news = response.data.result
-				})
-			this.axios.get('./../static/json/keji.json')
-				.then(response => {
-					this.hot = response.data.result
-				})
-			this.axios.get('./../static/json/text.json')
-				.then(response => {
-					this.text = response.data.result
-				})
-			this.axios.get('./../static/json/yule.json')
-				.then(response => {
-					this.keji = response.data.result
-				})
+				this.axios.get('./../static/json/imgs.json')
+					.then(response => {
+						this.news = response.data.result
+						console.log(this.news.data)
+					})
 		},
 	}
 </script>

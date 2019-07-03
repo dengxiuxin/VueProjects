@@ -7,6 +7,7 @@ import Materials from '@/components/Materials'
 import notes from '@/components/notes'
 import chitchat from '@/components/chitchat'
 import UserInfo from '@/components/UserInfo'
+import undefind from '@/components/undefind'
 
 Vue.use(Router)
 
@@ -27,6 +28,7 @@ export default new Router({
 				{path:'/notes',component:notes},
 				{path:'/chitchat',component:chitchat},
 				{path:'/UserInfo',component:UserInfo},
+				{path:'*',component:undefind}
 			]
     },
   ],
