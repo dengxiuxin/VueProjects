@@ -50,7 +50,7 @@
 				titles:[
 						{name:'主页',url:'/home'},
 						{name:'学习资料',url:'/Materials'},
-						{name:'往期新闻',url:'/notes'},
+						{name:'往期资料',url:'/notes'},
 						{name:'博客中心',url:'/UserInfo'},
 						]
 			}
