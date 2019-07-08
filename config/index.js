@@ -11,21 +11,13 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-		// '/api':{
-		// 	// target:'http://v.juhe.cn/toutiao/index?key=78de3c7af851d9f4848d7b9a79f47378&type=top',
-		// 	target:'https://api.shenjian.io/?appid=4e094375043b34198c625ceaed6d3a40',
-		// 	changeOrigin:true,
-		// 	pathRewrite:{
-		// 		'^/api':''
-		// 	},
-		// },
-		'/api': {
-            target: 'http://127.0.0.1:3000/api/',
-            changeOrigin: true,
-            pathRewrite: {
-                '^/api': ''
-            }
-        }
+		// '/api': {
+  //           target: 'http://127.0.0.1:3000/api/',
+  //           changeOrigin: true,
+  //           pathRewrite: {
+  //               '^/api': ''
+  //           }
+  //       }
 	},
 
     // Various Dev Server settings

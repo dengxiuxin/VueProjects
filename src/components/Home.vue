@@ -70,21 +70,22 @@
 
 		},
 		mounted: function() {
-				this.axios.get('./../static/json/imgs.json')
+				this.axios.get('https://www.easy-mock.com/mock/5d23aa42ab7a6e3db3b0b1f9/myvue/imgs')
 					.then(response => {
 						this.news = response.data.result
 						
 					}),
-				this.axios.get('./../static/json/top.json')
+				this.axios.get('https://www.easy-mock.com/mock/5d23aa42ab7a6e3db3b0b1f9/myvue/top')
 				.then(response => {
 					this.top = response.data.result
 					
 				}),
-				this.axios.get('./../static/json/yule.json')
+				this.axios.get('https://www.easy-mock.com/mock/5d23aa42ab7a6e3db3b0b1f9/myvue/news')
 				.then(response => {
 					this.keji = response.data.result
-					
+					console.log(this.keji)
 				})
+				
 		},
 	}
 </script>

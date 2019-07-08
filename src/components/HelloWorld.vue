@@ -1,9 +1,9 @@
 <template>
 	<div class="hello">
-		
+
 		<nav class="navbar navbar-default tou_bu navbar-static-top">
 			<div class="container">
-		
+
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
 					 aria-expanded="false">
@@ -16,9 +16,9 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav header_tab">
-						
+
 						<li v-for="(titl,index) in titles"><a href="#" :key="titl.index">
-								<router-link :to="titl.url">{{titl.name}}</router-link> 
+								<router-link :to="titl.url">{{titl.name}}</router-link>
 							</a></li>
 					</ul>
 					<form class="navbar-form navbar-right select_sou">
@@ -47,14 +47,28 @@
 		name: 'HelloWorld',
 		data() {
 			return {
-				titles:[
-						{name:'主页',url:'/home'},
-						{name:'学习资料',url:'/Materials'},
-						{name:'往期资料',url:'/notes'},
-						{name:'博客中心',url:'/UserInfo'},
-						]
+				titles: [{
+						name: '主页',
+						url: '/home'
+					},
+					{
+						name: '学习资料',
+						url: '/Materials'
+					},
+					{
+						name: '往期资料',
+						url: '/notes'
+					},
+					{
+						name: '博客中心',
+						url: '/UserInfo'
+					},
+					
+				],
+				uu:'',
 			}
-		}
+		},
+
 	}
 </script>
 
@@ -62,14 +76,14 @@
 	.navbar-brand {
 		padding: 0px;
 	}
-	
+
 	.logo {
 		width: 180px;
 		height: 48px;
 	}
-	
+
 	.navbar {
 		margin-bottom: 1px !important;
-	
+
 	}
 </style>
