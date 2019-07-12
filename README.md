@@ -3,8 +3,8 @@
 > 未来是一场梦
 
 ![Image text](https://github.com/dengxiuxin/VueProjects/blob/master/static/img/kejidiama.png)
-![Image text](https://github.com/dengxiuxin/VueProjects/blob/master/static/img/kejidiamape.png)
-
+## 自适应
+![Image text](https://github.com/dengxiuxin/VueProjects/blob/master/static/img/kejidaimape.png)
 ## Build Setup
 
 ``` bash
