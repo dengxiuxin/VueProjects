@@ -15,6 +15,9 @@ import App from './App'
 import router from './router'
 import $ from 'jquery'
 
+//引入store
+import store from './store'
+
 import axios from 'axios'
 Vue.prototype.axios=axios
 //引入axios
@@ -39,14 +42,13 @@ Vue.component('newsby',newsby);
 Vue.component('daily',daily);
 Vue.component('hright',hright);
 Vue.component('addblog',addblog);
-
-
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

@@ -83,6 +83,7 @@
 			show(){				
 					this.isShow = !this.isShow
 					// 登录表单切换
+					console.log(this.$store.state.showFooter)
 			},
 			
 			eye (){

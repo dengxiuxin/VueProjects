@@ -73,7 +73,6 @@
 				this.axios.get('https://www.easy-mock.com/mock/5d23aa42ab7a6e3db3b0b1f9/myvue/imgs')
 					.then(response => {
 						this.news = response.data.result
-						
 					}),
 				this.axios.get('https://www.easy-mock.com/mock/5d23aa42ab7a6e3db3b0b1f9/myvue/top')
 				.then(response => {
