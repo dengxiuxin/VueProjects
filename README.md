@@ -15,6 +15,8 @@ npm install
 	bootstrap	jquery
 	popper		vue
 	vue-router	axios
+	vuex		vue-resource
+	element-ui
 
 # serve with hot reload at localhost:8080
 npm run dev
@@ -55,5 +57,11 @@ npm run build --report
 #2019-06-28 更新
 # 新增插件 Element-ul
 # add博客中心子组件
+```
+
+```
+# 2019-07-12 更新
+# 加入vuex管理数据
+# 将本地json文件移动到 EasyMock API
 ```
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
