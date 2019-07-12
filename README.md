@@ -63,5 +63,6 @@ npm run build --report
 # 2019-07-12 更新
 # 加入vuex管理数据
 # 将本地json文件移动到 EasyMock API
+# 实现父子孙组件的交互，数据的全局共享
 ```
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

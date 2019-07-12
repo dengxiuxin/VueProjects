@@ -9,7 +9,7 @@
 		<hr style="background-color: #999999; margin: 0px; padding: 0px;" />
 
 		<ul class="row _new"  >
-			<li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in keji.data" v-if='index<=num' :key="index">
+			<li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in this.$store.state.keji.data" v-if='index<=num' :key="index">
 				<div class="col-md-2 col-ms-3 col-xs-3">
 					<img :src="item.pic_img" class="img-rounded img-responsive">
 					<h5 class="text-center">{{item.author_name}}</h5>
@@ -35,22 +35,21 @@
 		data() {
 			return {
 				num: 4,
-				sum: 5
+				sum: 5,
 			}
 		},
 		methods:{
 			loading(){
-				this.num += this.sum,
-				console.log("num"+this.num)
-				console.log("sum"+this.sum)
+				this.num += this.sum
+				
 			},
 			cancel(){
 				if(!this.num <=5){
 					this.num -= this.sum
+					
 				}	
-			}
-		},
-		props:['keji'],
+			},
+		}
 	}
 </script>
 

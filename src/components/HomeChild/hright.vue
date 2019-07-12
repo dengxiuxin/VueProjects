@@ -41,7 +41,7 @@
 			<div class="col-md-12 col-xs-12 col-sm-12">
 				<h3>新秀<img src="../../../static/img/xuankuang_.png" style="float: right; width: 25px; height: 25px;"></h3>
 				<ul class="row _figure _fih">
-					<li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in top.data" v-if='index<=6' :key="index">
+					<li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in this.$store.state.tops.data" v-if='index<=6' :key="index">
 						<img :src="item.img" class="img-thumbnail">
 						<h5>{{item.name}}</h5><span class="label label-danger">New</span>
 						<small>
@@ -55,7 +55,7 @@
 			<div class="col-md-12 col-xs-12 col-sm-12">
 				<h3>热文榜<img src="../../../static/img/bianqian_.png" style="float: right; width: 25px; height: 25px;"></h3>
 				<ul class="row _figure _s">
-					<li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in top.data" v-if='index<=15' :key="index">
+					<li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in this.$store.state.tops.data" v-if='index<=15' :key="index">
 						<p class="label label-danger">{{index+1}}</p>
 						<p class="_b">
 							<a :href="item.url">{{item.title}}</a>
@@ -75,7 +75,7 @@
 				isShow:true,
 				eyes:true,
 				pas:"password",
-				btn:"glyphicon-eye-open"
+				btn:"glyphicon-eye-open",
 			}
 			
 		},
@@ -83,12 +83,10 @@
 			show(){				
 					this.isShow = !this.isShow
 					// 登录表单切换
-					console.log(this.$store.state.showFooter)
 			},
 			
 			eye (){
 				if(this.eyes = !this.eyes){
-					console.log(this.eyes)
 					this.btn = 'glyphicon-eye-open'
 					this.pas = 'text'
 				}else{
@@ -99,7 +97,6 @@
 			}
 			
 		},
-		props:['top'],
 	}
 </script>
 

@@ -21,18 +21,18 @@
 			<div class="row">
 				<div class="col-md-9 col-xs-12 col-sm-12 _box"><!-- 左边 -->			
 						<div class="col-md-12 col-xs-12 col-sm-12">
-							<newsby v-bind:news="news"></newsby>
+							<newsby></newsby>
 							<!-- 这是轮播和头条子组件 -->
 						</div>
 						<div class="col-md-12 col-xs-12 col-sm-12">
-							<daily v-bind:keji="keji"></daily>	
+							<daily></daily>	
 							<!-- 这是左下的博条 -->
 						</div>
 				</div>
 
 
 				<div class="col-md-3 col-xs-12 col-sm-12"><!-- 右边-->
-					<hright v-bind:top="top"></hright>
+					<hright></hright>
 				</div>
 				
 			</div>
@@ -60,29 +60,23 @@
 		name: 'Home',
 		data() {
 			return {				
-				content: 'hot',
-
-				top: [],  //top
-				keji: [], //keji
-				news:[],
 				
 			}
 
 		},
 		mounted: function() {
+			let _this = this;
 				this.axios.get('https://www.easy-mock.com/mock/5d23aa42ab7a6e3db3b0b1f9/myvue/imgs')
 					.then(response => {
-						this.news = response.data.result
+						_this.$store.commit('SAVE_NEWSINFO',response.data.result)
 					}),
 				this.axios.get('https://www.easy-mock.com/mock/5d23aa42ab7a6e3db3b0b1f9/myvue/top')
 				.then(response => {
-					this.top = response.data.result
-					
+					_this.$store.commit('SAVE_TOPINFO',response.data.result)
 				}),
 				this.axios.get('https://www.easy-mock.com/mock/5d23aa42ab7a6e3db3b0b1f9/myvue/news')
 				.then(response => {
-					this.keji = response.data.result
-					console.log(this.keji)
+					_this.$store.commit('SAVE_KEJIINFO',response.data.result)
 				})
 				
 		},

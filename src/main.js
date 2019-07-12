@@ -15,8 +15,7 @@ import App from './App'
 import router from './router'
 import $ from 'jquery'
 
-//引入store
-import store from './store'
+import store from './vuex/store'
 
 import axios from 'axios'
 Vue.prototype.axios=axios
