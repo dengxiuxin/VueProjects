@@ -2,8 +2,9 @@
 
 > 未来是一场梦
 
-![Image text]()
-![Image text]()
+![Image text](https://github.com/dengxiuxin/VueProjects/blob/master/static/img/kejidiama.png)
+![Image text](https://github.com/dengxiuxin/VueProjects/blob/master/static/img/kejidiamape.png)
+
 ## Build Setup
 
 ``` bash
