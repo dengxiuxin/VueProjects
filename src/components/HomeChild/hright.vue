@@ -9,33 +9,24 @@
 			</div>
 			
 			<div class="col-md-12 col-xs-12 col-sm-12 _res" v-if="!isShow">
-				<form action='#' method='post'>
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						
-						<div class="text-center">
-							<h3>欢迎登录</h3>
-						</div>
-						
-						<div class="form-group">
-							<label for="exampleInputEmail1">用户名:</label>
-							<input type="text" class="form-control" placeholder="请输入用户名" name='username'>
-						</div>
-						
-						<div class="form-group has-feedback">
-							<label for="exampleInputPassword1">用户密码:</label>
-							<input id="password" class="form-control" :type="pas" placeholder="请输入密码"  name='pwd'>
-							<span :class="btn" class="glyphicon form-control-feedback"></span>
-							<p><label><input id="meod" type="checkbox" @click="eye"> 显示密码</label></p>
-						</div>
-						
-						<div class="text-center">
-							<button type="button" class="btn btn-primary">登录博客</button>
-							<button type="button" class="btn btn-primary" @click="show"><span class="glyphicon glyphicon-refresh"></span></button>
-						</div>
-						
-						
-					</div>
-				</form>
+				<span class="login_logo"><i class="el-icon-loading"></i>登录</span>
+				<el-form :model="loginForm" status-icon :rules="rules" ref="loginForm" label-width="50px" class="demo-loginForm ">
+					<el-form-item label="账号" prop="username">
+						<el-input type="text" v-model="loginForm.username" autocomplete="off"></el-input>
+					</el-form-item>
+					<el-form-item label="密码" prop="password">
+						<el-input type="password" v-model="loginForm.password" autocomplete="off"></el-input>
+					</el-form-item>
+					<el-form-item class="log_btn">
+						<el-button type="primary" @click="submitForm('loginForm')" class="login_button">登录</el-button>
+						<el-button @click="resetForm('loginForm')" class="login_button">重置</el-button>
+						<el-button  @click="show" class="res_button"><span class="glyphicon glyphicon-refresh"></span></el-button>
+					</el-form-item>
+				</el-form>
+				
+
+				
+				
 			</div>
 			<p class="_line"></p>
 			<div class="col-md-12 col-xs-12 col-sm-12">
@@ -71,11 +62,25 @@
 <script>
 	export default {
 		data (){
+			
+			//表单数据
 			return {
 				isShow:true,
-				eyes:true,
-				pas:"password",
-				btn:"glyphicon-eye-open",
+				loginForm: {
+          username: '',
+          password: ''
+        },
+				//验证规则
+        rules: {
+         username:[
+            { required: true, message: '请输入用户名', trigger: 'blur' },
+            { min: 6, max: 18, message: '长度在 6 到 18 个字符', trigger: 'blur' }
+				 ],
+				 password :[
+					 { required: true, message: '请输入密码', trigger: 'blur' },
+					 { min: 6, max: 15, message: '长度在 6 到 15 个字符', trigger: 'blur' }
+				 ]
+        }
 			}
 			
 		},
@@ -84,27 +89,46 @@
 					this.isShow = !this.isShow
 					// 登录表单切换
 			},
-			
-			eye (){
-				if(this.eyes = !this.eyes){
-					this.btn = 'glyphicon-eye-open'
-					this.pas = 'text'
-				}else{
-					this.btn = 'glyphicon-eye-close'
-					this.pas = 'password'
-				}
-				// 密码显示切换
-			}
-			
+			 submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            alert("登录成功");
+						alert("登录成功"+"输出数据账号："+this.loginForm.username+"输出数据密码:"+this.loginForm.username)
+          } else {
+            console.log('登录失败，请检查账号或密码是否正确，或是输入条件是否满足！');
+            return false;
+          }
+        });
+      },
+      resetForm(loginForm) {
+        this.$refs[loginForm].resetFields();
+      }
 		},
 	}
 </script>
 
 <style scoped>
+	.res_button {
+		width: 30px;
+		height: 30px;
+		padding: 0!important;
+	}
+	.login_logo {
+		display: block;
+		margin-bottom: 5px;
+		font-size: 22px;
+		color: #333;
+	}
+	.login_button {
+				width: 50px;
+				height: 30px;
+				padding: 0!important;
+				
+		}
 	._res {
 		background-color: #F6F6F6;
 		border-radius: 2px;
-		padding-bottom: 10px;
+		padding-top: 10px;
 	}
 	._line {
 		width: 100%;

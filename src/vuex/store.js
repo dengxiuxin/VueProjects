@@ -12,6 +12,7 @@ const state = {
 const mutations = {
 	SAVE_KEJIINFO(state,keji){
 		state.keji = keji
+		console.log("这是");
 	},
 	SAVE_NEWSINFO(state,news){
 		state.news = news
