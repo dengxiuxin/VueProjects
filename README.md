@@ -31,9 +31,9 @@ npm run build --report
 ```
 # github 更新项目
 # git status
-# git add . 
+# git add .
 # git commit -m "text"
-# git push origin master 
+# git push origin master
 ```
 
 ```
@@ -67,7 +67,15 @@ npm run build --report
 ```
 
 ```
-# 2019-07-04 
+# 2019-07-04
 
+```
+
+```
+## 2019-07-18  重要修改
+#  增加了server
+#  加入express后端模块 载入mysql数据库
+#  移除了notes组件
+#  开始为用户群模块准备
 ```
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

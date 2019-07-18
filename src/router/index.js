@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/Home'
 import Materials from '@/components/Materials'
-import notes from '@/components/notes'
+// import notes from '@/components/notes' 		//在2019-07-08移除出项目..
 import chitchat from '@/components/chitchat'
 import UserInfo from '@/components/UserInfo'
 import undefind from '@/components/undefind'

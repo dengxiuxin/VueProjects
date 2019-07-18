@@ -24,7 +24,7 @@ a {
 
 @media (max-width:992px) {
 	._input-group {
-		width: 180px;
+		width: 150px;
 	}
 
 	body {
@@ -189,7 +189,7 @@ a {
 	}
 
 	.items img {
-		height: 100%; 
+		height: 100%;
 		width: 100%;
 		text-align: center;
 	}
