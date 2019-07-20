@@ -9,24 +9,43 @@
         <button type="button" class="btn btn-primary" @click="show"><span class="glyphicon glyphicon-refresh"></span></button>
       </div>
     </el-collapse-transition>
+
     <el-collapse-transition>
-      <div class="col-md-12 col-xs-12 col-sm-12 _res" v-if="!isShow">
+      <div class="col-md-12 col-xs-12 col-sm-12 _res" v-if="isShows">
         <span class="login_logo"><i class="el-icon-loading"></i>登录</span>
         <el-form :model="loginForm" status-icon :rules="rules" ref="loginForm" label-width="50px" class="demo-loginForm ">
           <el-form-item label="账号" prop="username">
-            <el-input type="text" v-model="loginForm.username" autocomplete="off"></el-input>
+            <el-input type="text" v-model="loginForm.username" placeholder="请输入邮箱账号" autocomplete="off"></el-input>
           </el-form-item>
           <el-form-item label="密码" prop="password">
-            <el-input type="password" v-model="loginForm.password" autocomplete="off"></el-input>
+            <el-input placeholder="请输入密码" v-model="loginForm.password"show-password></el-input>
           </el-form-item>
           <el-form-item class="log_btn">
             <el-button type="primary" @click="submitForm('loginForm')" class="login_button">登录</el-button>
             <el-button @click="resetForm('loginForm')" class="login_button">重置</el-button>
-            <el-button @click="show" class="res_button"><span class="glyphicon glyphicon-refresh"></span></el-button>
+            <el-button @click="shows" class="res_button"><span class="glyphicon glyphicon-refresh"></span></el-button>
           </el-form-item>
         </el-form>
       </div>
     </el-collapse-transition>
+
+	<el-collapse-transition>
+	  <div class="col-md-12 col-xs-12 col-sm-12 _res" v-if="isuser">
+          <div style="height: 20px;"></div>
+          <div class="user_box">
+            <div class="user_img" style="padding: 0 60px 0px 60px; margin-top: -30px;">
+              <img :src="'../../../static/img/'+$store.state.userinfo.logo" width="100%" height="100%" style="padding: 3px; border-radius: 50%;" class="img-thumbnail"/>
+            </div>
+            <h3 class="text-center" style="color: #f2a11c;">{{$store.state.userinfo.nickname}}</h3>
+            <div class="text-center">
+              <button type="button" class="btn btn-info" style="margin-right: 10px;">博客信息</button>
+              <button type="button" class="btn btn-info" style="margin-left: 10px;" @click="outlogin">退出登录</button>
+            </div>
+          </div>
+	  </div>
+	</el-collapse-transition>
+
+
     <p class="_line"></p>
     <div class="col-md-12 col-xs-12 col-sm-12">
       <h3>新秀<img src="../../../static/img/xuankuang_.png" style="float: right; width: 25px; height: 25px;"></h3>
@@ -67,6 +86,8 @@
       //表单数据
       return {
         isShow: true,
+        isShows: false,
+        isuser: false,
         loginForm: {
           username: '',
           password: ''
@@ -80,8 +101,8 @@
             },
             {
               min: 4,
-              max: 18,
-              message: '长度在 4 到 18 个字符',
+              max: 25,
+              message: '长度在 4 到 25 个字符',
               trigger: 'blur'
             }
           ],
@@ -93,7 +114,7 @@
             {
               min: 6,
               max: 15,
-              message: '长度在 6 到 15 个字符',
+              message: '长度在 6 到 23 个字符',
               trigger: 'blur'
             }
           ]
@@ -102,15 +123,27 @@
 
     },
     methods: {
-      show() {
-        this.isShow = !this.isShow
-        // 登录表单切换
+      outlogin(){
+           this.isShow = true,
+           this.isShows = false,
+           this.isuser = false
       },
+
+      show() {
+          this.isShow = false,
+          this.isShows = true
+      },
+      shows() {
+          this.isShow = true,
+          this.isShows = false
+      },
+
+      //登录验证模块
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
             let _this = this;
-            this.axios.post('/api/checklogin', {
+            this.axios.post('http://47.107.63.20:3000/checklogin', {
                 username: _this.loginForm.username,
                 password: _this.loginForm.password
               })
@@ -118,10 +151,15 @@
                 console.log('接受到数据！', response.data)
 
                 if (response.data.length) {
+                  //把登录后去到的用户信息存入vuex里
+                  _this.$store.commit('SAVE_USERINFO',response.data[0])
                   _this.$message({
                     type: 'success',
-                    message: '登录成功!'
+                    message: '登录成功!',
                   });
+                  _this.isuser = true,
+                  _this.isShow = false,
+                  _this.isShows = false
                 } else {
                   _this.$message({
                     type:'error',
@@ -136,14 +174,27 @@
           }
         });
       },
+
+
       resetForm(loginForm) {
         this.$refs[loginForm].resetFields();
       }
     },
   }
+
 </script>
 
 <style scoped>
+  .user_box {
+    background-color: #FFF;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.2);
+
+  }
+  .user_img img{
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+  }
   .res_button {
     width: 30px;
     height: 30px;
@@ -168,6 +219,7 @@
     background-color: #F6F6F6;
     border-radius: 2px;
     padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   ._line {

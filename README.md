@@ -3,7 +3,7 @@
 > 未来是一场梦
 
 ![Image text](https://github.com/dengxiuxin/VueProjects/blob/master/static/img/kejidiama.png)
-## 自适应
+## 响应式
 ![Image text](https://github.com/dengxiuxin/VueProjects/blob/master/static/img/kejidaimape.png)
 ## Build Setup
 
@@ -77,5 +77,12 @@ npm run build --report
 #  加入express后端模块 载入mysql数据库
 #  移除了notes组件
 #  开始为用户群模块准备
+```
+
+```
+## 2019-07-20 修复
+# 完善登录模块
+# 开始进行用户模块的扩展
+# 在服务端引入cors实现跨域
 ```
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

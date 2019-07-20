@@ -20,7 +20,7 @@ import store from './vuex/store'
 import axios from 'axios'
 Vue.prototype.axios=axios
 //引入axios
- 
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import '../static/css/style.css';
@@ -30,6 +30,10 @@ import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 // 引入ElementUI
 
+
+// import md5 from 'js-md5';
+// Vue.prototype.$md5 = md5;
+//引入MD5加密模块
 
 // 全局引入子组件
 import newsby from './components/HomeChild/newsby.vue';
