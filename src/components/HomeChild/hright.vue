@@ -5,7 +5,7 @@
         <h3>你的知音都在这里</h3>
         <p>表达网民立场，记录个人生活，聚集意见领袖，众多草根精英，以我们的观点影响社会的进程 。</p>
         <hr>
-        <button type="button" class="btn btn-primary">注册博客</button>
+        <router-link to="/registered"><button type="button" class="btn btn-primary">注册博客</button></router-link>
         <button type="button" class="btn btn-primary" @click="show"><span class="glyphicon glyphicon-refresh"></span></button>
       </div>
     </el-collapse-transition>
@@ -13,12 +13,12 @@
     <el-collapse-transition>
       <div class="col-md-12 col-xs-12 col-sm-12 _res" v-if="isShows">
         <span class="login_logo"><i class="el-icon-loading"></i>登录</span>
-        <el-form :model="loginForm" status-icon :rules="rules" ref="loginForm" label-width="50px" class="demo-loginForm ">
+        <el-form :model="loginForm" status-icon :rules="rules" ref="loginForm" label-width="55px" class="demo-loginForm ">
           <el-form-item label="账号" prop="username">
             <el-input type="text" v-model="loginForm.username" placeholder="请输入邮箱账号" autocomplete="off"></el-input>
           </el-form-item>
           <el-form-item label="密码" prop="password">
-            <el-input placeholder="请输入密码" v-model="loginForm.password"show-password></el-input>
+            <el-input placeholder="请输入密码" v-model="loginForm.password" show-password></el-input>
           </el-form-item>
           <el-form-item class="log_btn">
             <el-button type="primary" @click="submitForm('loginForm')" class="login_button">登录</el-button>
@@ -29,21 +29,22 @@
       </div>
     </el-collapse-transition>
 
-	<el-collapse-transition>
-	  <div class="col-md-12 col-xs-12 col-sm-12 _res" v-if="isuser">
-          <div style="height: 20px;"></div>
-          <div class="user_box">
-            <div class="user_img" style="padding: 0 60px 0px 60px; margin-top: -30px;">
-              <img :src="'../../../static/img/'+$store.state.userinfo.logo" width="100%" height="100%" style="padding: 3px; border-radius: 50%;" class="img-thumbnail"/>
-            </div>
-            <h3 class="text-center" style="color: #f2a11c;">{{$store.state.userinfo.nickname}}</h3>
-            <div class="text-center">
-              <button type="button" class="btn btn-info" style="margin-right: 10px;">博客信息</button>
-              <button type="button" class="btn btn-info" style="margin-left: 10px;" @click="outlogin">退出登录</button>
-            </div>
+    <el-collapse-transition>
+      <div class="col-md-12 col-xs-12 col-sm-12 _res" v-if="isuser">
+        <div style="height: 20px;"></div>
+        <div class="user_box">
+          <div class="user_img" style="padding: 0 60px 0px 60px; margin-top: -30px;">
+            <img :src="'../../../static/img/'+$store.state.userinfo.logo" width="100%" height="100%" style="padding: 3px; border-radius: 50%;"
+              class="img-thumbnail" />
           </div>
-	  </div>
-	</el-collapse-transition>
+          <h3 class="text-center" style="color: #f2a11c;">{{$store.state.userinfo.nickname}}</h3>
+          <div class="text-center">
+            <button type="button" class="btn btn-info" style="margin-right: 10px;">博客信息</button>
+            <button type="button" class="btn btn-info" style="margin-left: 10px;" @click="outlogin">退出登录</button>
+          </div>
+        </div>
+      </div>
+    </el-collapse-transition>
 
 
     <p class="_line"></p>
@@ -123,10 +124,15 @@
 
     },
     methods: {
-      outlogin(){
-           this.isShow = true,
-           this.isShows = false,
-           this.isuser = false
+      outlogin() {
+        //退出登录
+        this.isShow = true,
+          this.isShows = false,
+          this.isuser = false
+        var storage = window.localStorage;
+        storage.clear();
+        this.loginForm.username = '',
+          this.loginForm.password = ''
       },
 
       show() {
@@ -134,7 +140,7 @@
           this.isShows = true
       },
       shows() {
-          this.isShow = true,
+        this.isShow = true,
           this.isShows = false
       },
 
@@ -151,19 +157,27 @@
                 console.log('接受到数据！', response.data)
 
                 if (response.data.length) {
+
+                  //把用户数据存入本地
+                  localStorage.setItem('userinfo', JSON.stringify(response.data[0]))
+
+                  //取出本地用户数据
+                  let userinfo = JSON.parse(localStorage.getItem('userinfo'))
+                  console.log("本地数据" + userinfo)
+
                   //把登录后去到的用户信息存入vuex里
-                  _this.$store.commit('SAVE_USERINFO',response.data[0])
+                  _this.$store.commit('SAVE_USERINFO', userinfo)
                   _this.$message({
                     type: 'success',
                     message: '登录成功!',
                   });
                   _this.isuser = true,
-                  _this.isShow = false,
-                  _this.isShows = false
+                    _this.isShow = false,
+                    _this.isShows = false
                 } else {
                   _this.$message({
-                    type:'error',
-                    message:'登录失败！ 账号或者密码错了哟~ 亲'
+                    type: 'error',
+                    message: '登录失败！ 账号或者密码错了哟~ 亲'
                   })
                 }
               })
@@ -180,8 +194,18 @@
         this.$refs[loginForm].resetFields();
       }
     },
+    mounted: function() {
+      //加载本地用户数据
+      if (JSON.parse(localStorage.getItem('userinfo')) == null) {
+        console.log("没检测到用户数据")
+      } else {
+        this.$store.commit('SAVE_USERINFO', JSON.parse(localStorage.getItem('userinfo')))
+        this.isuser = true,
+          this.isShow = false,
+          this.isShows = false
+      }
+    },
   }
-
 </script>
 
 <style scoped>
@@ -192,9 +216,11 @@
     box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.2);
 
   }
-  .user_img img{
+
+  .user_img img {
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
   }
+
   .res_button {
     width: 30px;
     height: 30px;

@@ -14,18 +14,18 @@
 		</div>
 		<p class="container lins"></p>
 		<!-- content-box -->
-		
-		
-		
+
+
+
 		<div class="container" style="background-color: #FFFFFF;">
 			<div class="row">
-				<div class="col-md-9 col-xs-12 col-sm-12 _box"><!-- 左边 -->			
+				<div class="col-md-9 col-xs-12 col-sm-12 _box"><!-- 左边 -->
 						<div class="col-md-12 col-xs-12 col-sm-12">
 							<newsby></newsby>
 							<!-- 这是轮播和头条子组件 -->
 						</div>
 						<div class="col-md-12 col-xs-12 col-sm-12">
-							<daily></daily>	
+							<daily></daily>
 							<!-- 这是左下的博条 -->
 						</div>
 				</div>
@@ -34,14 +34,14 @@
 				<div class="col-md-3 col-xs-12 col-sm-12"><!-- 右边-->
 					<hright></hright>
 				</div>
-				
+
 			</div>
 		</div>
 
 
-		
-		
-		
+
+
+
 		<router-view></router-view>
 		<footer class="footer navbar-fixed-bottom ">
 			<div class="container footd">
@@ -59,8 +59,8 @@
 	export default {
 		name: 'Home',
 		data() {
-			return {				
-				
+			return {
+
 			}
 
 		},
@@ -78,7 +78,6 @@
 				.then(response => {
 					_this.$store.commit('SAVE_KEJIINFO',response.data.result)
 				})
-				
 		},
 	}
 </script>
@@ -86,7 +85,7 @@
 <style scoped>
 	._box {
 		border-right: 1px solid #EAEAEA;
-		margin: 0; 
+		margin: 0;
 		padding: 0;
 	}
 	.footd {
@@ -101,7 +100,7 @@
 		text-align: center;
 		color: #999999;
 	}
-	
+
 	.v-enter {
 		opacity: 0;
 	}
@@ -126,7 +125,7 @@
 		color: #999999;
 	}
 	.lins {
-	
+
 		margin-bottom: 1px !important;
 		height: 4px;
 		background-color: #999999;
@@ -134,11 +133,11 @@
 	._plate-head {
 		background-color: #FFFFFF;
 	}
-	
+
 	._plate-png {
 		/* background-image: url(img/touzhu.png); */
 		background-position: 15px 27px;
 		background-repeat: no-repeat;
-	
+
 	}
 </style>

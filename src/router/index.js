@@ -7,6 +7,7 @@ const Materials = () => import('@/components/Materials')
 // import notes from '@/components/notes' 		//在2019-07-08移除出项目..
 const UserInfo = () => import('@/components/UserInfo')
 const undefind = () => import('@/components/undefind')
+const registered = () => import('@/components/registered')
 
 Vue.use(Router)
 
@@ -25,6 +26,7 @@ export default new Router({
 				{path:'/Home',component:Home},
 				{path:'/Materials',component:Materials},
 				{path:'/UserInfo',component:UserInfo},
+        {path:'/registered',component:registered},
 				{path:'*',component:undefind}
 			]
     },
