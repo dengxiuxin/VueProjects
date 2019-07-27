@@ -63,7 +63,7 @@
 				</div>
 				<p><b>博客分类:</b></p>
 				<div class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
-					
+
 						<p v-for="(category,index) in blog.categories" :key="index"  class="col-md-3 col-sm-3 col-xs-3 text-center">
 							{{category}}
 						</p>
@@ -77,6 +77,7 @@
 
 <script>
 	export default {
+		name: 'addblog',
 		data() {
 			return {
 				blog: {
@@ -84,7 +85,7 @@
 					content: "",
 					categories: [],
 					categorie:"",
-					
+
 				},
 				authors: [
 					"LaoDeng", "花花", "无为君", ""

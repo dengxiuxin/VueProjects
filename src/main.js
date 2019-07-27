@@ -36,15 +36,19 @@ Vue.use(ElementUI)
 //引入MD5加密模块
 
 // 全局引入子组件
-import newsby from './components/HomeChild/newsby.vue';
-import daily from './components/HomeChild/daily.vue';
-import hright from './components/HomeChild/hright.vue';
-import addblog from './components/UserChild/addblog.vue';
+const newsby = () => import('./components/HomeChild/newsby.vue')
+const daily = () => import('./components/HomeChild/daily.vue')
+const hright = () => import('./components/HomeChild/hright.vue')
+
+const addblog = () => import('./components/UserChild/addblog.vue')
+const uinfo = () => import('./components/UserChild/uinfo.vue')
 // 声明子组件
 Vue.component('newsby',newsby);
 Vue.component('daily',daily);
 Vue.component('hright',hright);
 Vue.component('addblog',addblog);
+Vue.component('uinfo',uinfo);
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

@@ -1,202 +1,256 @@
 <template>
-	<div class="hello">
-		<div class="header col-lg-10 col-md-10 col-sm-8 col-xs-8">
-			<div class="var">
-				<img src="../../static/img/var.png" width="50px;" height="50px;" />
-			</div>
-		</div>
-
-		<div class="left col-lg-2 col-md-2 col-sm-4 col-xs-4">
-			<h3>{{name}}</h3>
-			<div class="left_info">
-				<div class="left_in">
-					<img src="../../static/img/touxianga.jpg" class="img-rounded" />
-				</div>
-				<div class="left_fo">
-					<span>你好! </span><span>
-						老邓</span><br />
-					<span><img src="../../static/img/start.png" width="20px" height="20px" />
-						online</span>
-				</div>
-
-			</div>
+  <div class="hello">
+    <div class="header col-lg-10 col-md-10 col-sm-8 col-xs-8">
 
 
 
-			<hr />
-			<div class="meun">
-				<br />
-				<h1>控制台</h1>
-			</div>
-			<el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+      <el-badge :value="12" class="item">
+        <el-button size="small">评论</el-button>
+      </el-badge>
+      <el-badge :value="3" class="item">
+        <el-button size="small">回复</el-button>
+      </el-badge>
+      <el-badge :value="1" class="item" type="primary">
+        <el-button size="small">我的</el-button>
+      </el-badge>
+
+    </div>
+
+    <div class="left col-lg-2 col-md-2 col-sm-4 col-xs-4">
+      <h3>{{$store.state.userinfo.nickname}}</h3>
+      <div class="left_info">
+        <div class="left_in">
+          <img :src="'../../../static/img/'+$store.state.userinfo.logo" class="img-rounded" style="margin-left: 20px; margin-top: 10px;" />
+        </div>
+        <div class="left_fo">
+          <span>你好!</span><span>
+            {{$store.state.userinfo.username}}</span><br />
+          <span><img src="../../static/img/start.png" width="20px" height="20px" />
+            {{$store.state.userinfo.status}}</span>
+        </div>
+
+      </div>
 
 
-			<div>
-			</div>
-		</div>
 
-		<addblog></addblog>
-		<!-- 添加博客组件 -->
+      <hr />
+      <div class="meun">
+        <br />
+        <h1>信息中心</h1>
+      </div>
 
-		<router-view></router-view>
-	</div>
+
+
+      <el-row >
+        <el-col>
+          <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
+            <el-submenu index="1">
+              <template slot="title">
+                <i class="el-icon-location"></i>
+                <span>控制台</span>
+              </template>
+              <el-menu-item index="1-2" @click="uinfo">用户资料</el-menu-item>
+
+              <el-submenu index="1-3">
+                <template slot="title">发布博客</template>
+                <el-menu-item index="1-3-1" @click="write">写博客</el-menu-item>
+                <el-menu-item index="1-3-2">已发布博客</el-menu-item>
+              </el-submenu>
+
+            </el-submenu>
+          </el-menu>
+        </el-col>
+      </el-row>
+
+
+      <div>
+      </div>
+    </div>
+
+    <transition name="el-zoom-in-top">
+      <div v-if="writes">
+        <addblog></addblog>
+        <!-- 添加博客组件 -->
+      </div>
+    </transition>
+
+    <transition name="el-zoom-in-top">
+      <div v-if="uinfos">
+        <uinfo></uinfo>
+        <!-- 添加博客组件 -->
+      </div>
+    </transition>
+
+
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-	export default {
-		name: 'hello',
-		data() {
-			return {
-				name: "博客中心",
-				data: [{
-					label: '列表',
-					children: [{
-						label: '子列表',
-					}]
-				},{
-					label: '列表',
-					children: [{
-						label: '子列表',
-					}]
-				},
-				{
-					label: '列表',
-					children: [{
-						label: '子列表',
-					}, {
-						label: '子列表',
-					}]
-				}, {
-					label: '列表',
-					children: [{
-						label: '子列表',
-					}, {
-						label: '子列表',
-					}]
-				}],
-				defaultProps: {
-					children: 'children',
-					label: 'label'
-				}
-			}
-		},
-		methods: {
-			handleNodeClick() {
+  export default {
+    name: 'hello',
+    data() {
+      return {
+        name: "博客中心",
+        uinfos: false,
+        writes: false,
+      }
+    },
+    methods: {
+      write() {
+        this.uinfos = false
+        this.writes = true
+      },
+      uinfo() {
+        this.writes = false
+        this.uinfos = true
+      },
 
-			}
-		}
-	}
+
+      handleNodeClick() {
+
+      },
+      handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
+        console.log(key, keyPath);
+      }
+    },
+  }
 </script>
 
 <style scoped>
-	.hello {
-		border: 5px solid #CC0000;
-		float: left;
-		width: 100%;
+  .item {
+    margin-top: 13px;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
 
-	}
+  .hello {
+    border: 5px solid #CC0000;
+    float: left;
+    width: 100%;
 
-	.header {
-		float: right;
-		padding: 0 !important;
-		height: 50px;
-		margin: 0px;
-		border-bottom: 2px solid #cc0000;
-	}
+  }
 
-	.var {
-		float: left;
-	}
+  .header {
+    float: right;
+    padding: 0 !important;
+    height: 50px;
+    margin: 0px;
+    border-bottom: 2px solid #cc0000;
+    background-color: #fff;
+  }
+
+  .left {
+    float: left;
+    background-image: linear-gradient(to top, #FFFFCC, #ffffff);
+    border-right: 2px solid #CC1111;
+    padding: 0 !important;
+    height: 687px;
+  }
+
+  .left h3 {
+    float: left;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    border-bottom: 2px solid #CC1111;
+    line-height: 50px;
+    letter-spacing: 3px;
+    margin: 0;
+  }
+
+  .left_info {
+    float: left;
+    width: 100%;
+    height: 15%;
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+  }
+
+  .left_in {
+    float: left;
+    width: 30%;
+    text-align: center;
+    padding: 5px;
+  }
+
+  .left_in img {
+    width: 50px;
+  }
+
+  .left_fo {
+    float: left;
+    width: 70%;
+    text-align: center;
+    height: 30%;
+    line-height: 30px;
+    margin-top: 10px;
+
+  }
+
+  .meun h1 {
+    font-size: 25px;
+    letter-spacing: 8px;
+    text-align: center;
+
+  }
+
+  @media (max-width:990px) {
+    .left {
+      float: left;
+      background-image: linear-gradient(to top, #FFFFCC, #ffffff);
+      border-right: 2px solid #CC1111;
+      padding: 0 !important;
+      height: 946px;
+    }
+    .item {
+      margin-top: 13px;
+      margin-right: 15px;
+    }
+  }
+  @media (max-width:490px) {
+    .item {
+      margin-top: 13px;
+      margin-right: 12px;
+      margin-left: 10px;
+    }
+  }
+  @media (max-width:430px) {
+    .left_in {
+      float: left;
+      width: 100%;
+      text-align: center;
+      padding: 5px;
+    }
+
+    .left_fo {
+      float: left;
+      width: 100%;
+      text-align: center;
+      height: 30%;
+      line-height: 30px;
 
 
-	.left {
-		float: left;
-		background-image: linear-gradient(to top, #FFFFCC, #ffffff);
-		border-right: 2px solid #CC1111;
-		padding: 0 !important;
-		height: 687px;
-	}
+    }
 
-	.left h3 {
-		float: left;
-		width: 100%;
-		height: 50px;
-		text-align: center;
-		border-bottom: 2px solid #CC1111;
-		line-height: 50px;
-		letter-spacing: 5px;
-		margin: 0;
-	}
+    .meun h1 {
+      font-size: 15px;
+      letter-spacing: 6px;
+      text-align: center;
 
-	.left_info {
-		float: left;
-		width: 100%;
-		height: 15%;
-		background-color: #FFFFFF;
-		margin-bottom: 20px;
-	}
-
-	.left_in {
-		float: left;
-		width: 30%;
-		text-align: center;
-		padding: 5px;
-	}
-
-	.left_in img {
-		width: 50px;
-	}
-
-	.left_fo {
-		float: left;
-		width: 70%;
-		text-align: center;
-		height: 30%;
-		line-height: 30px;
-
-
-	}
-
-	.meun h1 {
-		font-size: 25px;
-		letter-spacing: 8px;
-		text-align: center;
-
-	}
-
-	@media (max-width:990px) {
-		.left {
-			float: left;
-			background-image: linear-gradient(to top, #FFFFCC, #ffffff);
-			border-right: 2px solid #CC1111;
-			padding: 0 !important;
-			height: 946px;
-		}
-	}
-
-	@media (max-width:430px) {
-		.left_in {
-			float: left;
-			width: 100%;
-			text-align: center;
-			padding: 5px;
-		}
-
-		.left_fo {
-			float: left;
-			width: 100%;
-			text-align: center;
-			height: 30%;
-			line-height: 30px;
-
-
-		}
-
-		.meun h1 {
-			font-size: 20px;
-			letter-spacing: 8px;
-			text-align: center;
-
-		}
-	}
+    }
+  }
+  @media (max-width:380px) {
+     .item {
+      margin-top: 13px;
+      margin-right: 8px;
+      margin-left: 1px;
+    }
+     .left h3 {
+      letter-spacing: -1px;
+    }
+  }
 </style>
