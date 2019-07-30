@@ -39,7 +39,7 @@
           </div>
           <h3 class="text-center" style="color: #f2a11c;">{{$store.state.userinfo.nickname}}</h3>
           <div class="text-center">
-            <button type="button" class="btn btn-info" style="margin-right: 10px;">博客信息</button>
+            <button type="button" class="btn btn-info" style="margin-right: 10px;" @click="bloginfo">博客信息</button>
             <button type="button" class="btn btn-info" style="margin-left: 10px;" @click="outlogin">退出登录</button>
           </div>
         </div>
@@ -124,6 +124,9 @@
 
     },
     methods: {
+      bloginfo (){
+          this.$router.push({path:'/UserInfo'});
+      },
       outlogin() {
         //退出登录
         this.isShow = true,

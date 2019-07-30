@@ -1,9 +1,7 @@
 <template>
   <div class="hello">
-    <div class="header col-lg-10 col-md-10 col-sm-8 col-xs-8">
-
-
-
+    <div class="header col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <img src="../../static/img/var.png" width="50px" @click="lfte" />
       <el-badge :value="12" class="item">
         <el-button size="small">评论</el-button>
       </el-badge>
@@ -16,11 +14,12 @@
 
     </div>
 
-    <div class="left col-lg-2 col-md-2 col-sm-4 col-xs-4">
-      <h3>{{$store.state.userinfo.nickname}}</h3>
+    <transition name="el-zoom-in-left">
+    <div class="left col-lg-2 col-md-2 col-sm-4 col-xs-4" v-if="isShow">
+
       <div class="left_info">
         <div class="left_in">
-          <img :src="'../../../static/img/'+$store.state.userinfo.logo" class="img-rounded" style="margin-left: 20px; margin-top: 10px;" />
+          <img :src="'../../../static/img/'+$store.state.userinfo.logo" class="img-rounded" style="margin-left: 20px; margin-top: 15px;" />
         </div>
         <div class="left_fo">
           <span>你好!</span><span>
@@ -31,41 +30,34 @@
 
       </div>
 
-
-
       <hr />
       <div class="meun">
         <br />
         <h1>信息中心</h1>
       </div>
 
-
-
-      <el-row >
+      <el-row>
         <el-col>
           <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
-            <el-submenu index="1">
+            <el-submenu index="0">
               <template slot="title">
                 <i class="el-icon-location"></i>
                 <span>控制台</span>
               </template>
-              <el-menu-item index="1-2" @click="uinfo">用户资料</el-menu-item>
+              <el-menu-item index="0" @click="uinfo">用户资料</el-menu-item>
 
-              <el-submenu index="1-3">
+              <el-submenu index="0-1">
                 <template slot="title">发布博客</template>
-                <el-menu-item index="1-3-1" @click="write">写博客</el-menu-item>
-                <el-menu-item index="1-3-2">已发布博客</el-menu-item>
+                <el-menu-item index="0-2" @click="write">写博客</el-menu-item>
+                <el-menu-item index="0-3">已发布博客</el-menu-item>
               </el-submenu>
-
             </el-submenu>
           </el-menu>
         </el-col>
       </el-row>
 
-
-      <div>
-      </div>
     </div>
+    </transition>
 
     <transition name="el-zoom-in-top">
       <div v-if="writes">
@@ -91,12 +83,16 @@
     name: 'hello',
     data() {
       return {
+        isShow:true,
         name: "博客中心",
-        uinfos: false,
+        uinfos: true,
         writes: false,
       }
     },
     methods: {
+      lfte() {
+        this.isShow = !this.isShow
+      },
       write() {
         this.uinfos = false
         this.writes = true
@@ -111,18 +107,18 @@
 
       },
       handleOpen(key, keyPath) {
-        console.log(key, keyPath);
+
       },
       handleClose(key, keyPath) {
-        console.log(key, keyPath);
+
       }
+
     },
   }
 </script>
 
 <style scoped>
   .item {
-    margin-top: 13px;
     margin-right: 15px;
     margin-left: 15px;
   }
@@ -131,7 +127,6 @@
     border: 5px solid #CC0000;
     float: left;
     width: 100%;
-
   }
 
   .header {
@@ -148,7 +143,7 @@
     background-image: linear-gradient(to top, #FFFFCC, #ffffff);
     border-right: 2px solid #CC1111;
     padding: 0 !important;
-    height: 687px;
+    height: 680px;
   }
 
   .left h3 {
@@ -204,16 +199,23 @@
       background-image: linear-gradient(to top, #FFFFCC, #ffffff);
       border-right: 2px solid #CC1111;
       padding: 0 !important;
-      height: 946px;
+      height: 990px;
     }
     .item {
-      margin-top: 13px;
       margin-right: 15px;
+    }
+  }
+  @media (min-width:980) {
+     .left {
+      float: left;
+      background-image: linear-gradient(to top, #FFFFCC, #ffffff);
+      border-right: 2px solid #CC1111;
+      padding: 0 !important;
+      height: 990px;
     }
   }
   @media (max-width:490px) {
     .item {
-      margin-top: 13px;
       margin-right: 12px;
       margin-left: 10px;
     }
@@ -245,12 +247,28 @@
   }
   @media (max-width:380px) {
      .item {
-      margin-top: 13px;
       margin-right: 8px;
       margin-left: 1px;
     }
      .left h3 {
       letter-spacing: -1px;
     }
+  }
+</style>
+<style>
+  .el-submenu .el-menu-item {
+    padding: 0 25px!important;
+    height: 50px;
+    line-height: 50px;
+    min-width: 100px!important;
+  }
+  .el-submenu__title {
+    padding-left: 25px!important;
+  }
+  .el-submenu__title span {
+    margin-left: -12px!important;
+  }
+  .el-submenu__title i {
+    margin-left: -20px!important;
   }
 </style>
