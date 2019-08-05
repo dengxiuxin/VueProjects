@@ -34,7 +34,7 @@
         <div style="height: 20px;"></div>
         <div class="user_box">
           <div class="user_img" style="padding: 0 60px 0px 60px; margin-top: -30px;">
-            <img :src="'../../../static/img/'+$store.state.userinfo.logo" width="100%" height="100%" style="padding: 3px; border-radius: 50%;"
+            <img :src="'../../../static/userimg/'+$store.state.userinfo.logo" width="100%" height="100%" style="padding: 3px; border-radius: 50%;"
               class="img-thumbnail" />
           </div>
           <h3 class="text-center" style="color: #f2a11c;">{{$store.state.userinfo.nickname}}</h3>
@@ -51,12 +51,12 @@
     <div class="col-md-12 col-xs-12 col-sm-12">
       <h3>新秀<img src="../../../static/img/xuankuang_.png" style="float: right; width: 25px; height: 25px;"></h3>
       <ul class="row _figure _fih">
-        <li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in this.$store.state.tops.data" v-if='index<=6'
+        <li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in this.$store.state.newuserinfo" v-if='index<=6'
           :key="index">
-          <img :src="item.img" class="img-thumbnail">
-          <h5>{{item.name}}</h5><span class="label label-danger">New</span>
+          <img :src="'../../../static/userimg/'+item.logo" class="img-thumbnail">
+          <h5>{{item.username}}</h5><span class="label label-danger">New</span>
           <small>
-            {{item.sdasd}}
+            {{item.signature}}
           </small>
         </li>
 
@@ -163,11 +163,8 @@
 
                   //把用户数据存入本地
                   localStorage.setItem('userinfo', JSON.stringify(response.data[0]))
-
                   //取出本地用户数据
                   let userinfo = JSON.parse(localStorage.getItem('userinfo'))
-                  console.log("本地数据" + userinfo)
-
                   //把登录后去到的用户信息存入vuex里
                   _this.$store.commit('SAVE_USERINFO', userinfo)
                   _this.$message({
@@ -177,6 +174,7 @@
                   _this.isuser = true,
                     _this.isShow = false,
                     _this.isShows = false
+
                 } else {
                   _this.$message({
                     type: 'error',
@@ -200,7 +198,6 @@
     mounted: function() {
       //加载本地用户数据
       if (JSON.parse(localStorage.getItem('userinfo')) == null) {
-        console.log("没检测到用户数据")
       } else {
         this.$store.commit('SAVE_USERINFO', JSON.parse(localStorage.getItem('userinfo')))
         this.isuser = true,

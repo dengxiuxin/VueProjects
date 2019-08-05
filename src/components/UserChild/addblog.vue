@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="col-md-5 col-sm-8 col-xs-8" style="padding-left:5%;">
+		<div class="col-md-5 col-sm-12 col-xs-12" style="padding-left:5%;">
 
 			<h2>添加博客</h2>
 
@@ -48,7 +48,7 @@
 				<div class="alert alert-success" role="alert">发布成功!</div>
 			</div>
 		</div>
-		<div class="col-md-4 col-sm-8 col-xs-8 preview">
+		<div class="col-md-4 col-sm-12 col-xs-12 preview">
 			<div class="form-group col-md-12 col-sm-12 col-xs-12 text-center" id="preview">
 				<br />
 				<p style="font-size: 30px; font-weight: bold;">博客预览</p>

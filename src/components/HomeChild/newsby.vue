@@ -16,9 +16,9 @@
 					<div class="swiper-button-next" slot="button-next"></div> -->
 				</swiper>
 			</div>
-			
-			
-			
+
+
+
 
 			<!-- 轮播图 -->
 
@@ -39,8 +39,8 @@
 	export default {
 		data() {
 			return {
-				
-				
+
+
 				swiperOption: {
 					spaceBetween: 30,
 					centeredSlides: true,

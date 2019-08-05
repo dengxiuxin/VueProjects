@@ -77,7 +77,14 @@
 				this.axios.get('https://www.easy-mock.com/mock/5d23aa42ab7a6e3db3b0b1f9/myvue/news')
 				.then(response => {
 					_this.$store.commit('SAVE_KEJIINFO',response.data.result)
-				})
+				}),
+        //最新注册的用户信息
+        this.axios.post('http://47.107.63.20:3000/alluserinfo',{
+          sta: 200
+        })
+        .then(response => {
+        	_this.$store.commit('SAVE_NEWUSERINFO',response.data)
+        })
 		},
 	}
 </script>

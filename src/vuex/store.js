@@ -7,7 +7,9 @@ const state = {
 	keji:[],
 	news:[],
 	tops:[],
+	newuserinfo:[],
   userinfo:{},
+  artivcle:[]
 }
 
 const mutations = {
@@ -22,7 +24,15 @@ const mutations = {
 	},
   SAVE_USERINFO(state,userinfo){
     state.userinfo = userinfo
-     console.log("用户信息",state.userinfo)
+  },
+  SAVE_NEWUSERINFO(state,newuserinfo){
+  	state.newuserinfo = newuserinfo
+	 console.log("10条用户信息",state.newuserinfo)
+  },
+
+  SAVE_ARTIVCLE(state,artivcle){
+    state.artivcle = artivcle
+    console.log("文章",state.artivcle)
   }
 
 }

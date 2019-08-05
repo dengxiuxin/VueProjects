@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
     <div class="header col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <img src="../../static/img/var.png" width="50px" @click="lfte" />
+      <img :src="'../../static/img/'+img" width="50px" @click="lfte" />
+
       <el-badge :value="12" class="item">
         <el-button size="small">评论</el-button>
       </el-badge>
@@ -19,7 +20,7 @@
 
       <div class="left_info">
         <div class="left_in">
-          <img :src="'../../../static/img/'+$store.state.userinfo.logo" class="img-rounded" style="margin-left: 20px; margin-top: 15px;" />
+          <img :src="'../../../static/userimg/'+$store.state.userinfo.logo" class="img-rounded" style="margin-left: 20px; margin-top: 15px;" />
         </div>
         <div class="left_fo">
           <span>你好!</span><span>
@@ -60,14 +61,14 @@
     </transition>
 
     <transition name="el-zoom-in-top">
-      <div v-if="writes">
+      <div v-if="writes" :class="cla">
         <addblog></addblog>
         <!-- 添加博客组件 -->
       </div>
     </transition>
 
     <transition name="el-zoom-in-top">
-      <div v-if="uinfos">
+      <div v-if="uinfos" :class="cla">
         <uinfo></uinfo>
         <!-- 添加博客组件 -->
       </div>
@@ -83,6 +84,8 @@
     name: 'hello',
     data() {
       return {
+        img:'var.png',
+        cla:'col-md-10 col-sm-8 col-xs-8',
         isShow:true,
         name: "博客中心",
         uinfos: true,
@@ -92,6 +95,13 @@
     methods: {
       lfte() {
         this.isShow = !this.isShow
+        if(this.isShow == true){
+          this.cla = 'col-md-10 col-sm-8 col-xs-8',
+          this.img = 'var.png'
+        }else {
+          this.cla = 'col-md-12 col-sm-12 col-xs-12',
+          this.img = 'vara.png'
+        }
       },
       write() {
         this.uinfos = false
@@ -202,7 +212,7 @@
       height: 990px;
     }
     .item {
-      margin-right: 15px;
+      margin-right: 19px;
     }
   }
   @media (min-width:980) {
@@ -216,8 +226,8 @@
   }
   @media (max-width:490px) {
     .item {
-      margin-right: 12px;
-      margin-left: 10px;
+      margin-right: 15px;
+      margin-left: 15px;
     }
   }
   @media (max-width:430px) {
@@ -247,8 +257,8 @@
   }
   @media (max-width:380px) {
      .item {
-      margin-right: 8px;
-      margin-left: 1px;
+      margin-right: 10px;
+      margin-left: 10px;
     }
      .left h3 {
       letter-spacing: -1px;

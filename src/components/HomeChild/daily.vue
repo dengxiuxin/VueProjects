@@ -1,32 +1,37 @@
 <template>
 	<div>
 		<ul class="_cla-box">
-			<li class=""><a href="#">默认</a></li>
-			<li class=""><a href="#">今日头条</a></li>
-			<li class=""><a href="#">科技事件</a></li>
-			<li class=""><a href="#">娱乐事件</a></li>
+			<li v-for="(item,index) in category"><a href="#">{{item.title}}</a></li>
 		</ul>
 		<hr style="background-color: #999999; margin: 0px; padding: 0px;" />
 
 		<ul class="row _new"  >
-			<li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in this.$store.state.keji.data" v-if='index<=num' :key="index">
+
+
+			<li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in this.$store.state.artivcle" v-if='index<=num' :key="index">
 				<div class="col-md-2 col-ms-3 col-xs-3">
-					<img :src="item.pic_img" class="img-rounded img-responsive">
-					<h5 class="text-center">{{item.author_name}}</h5>
+					<img :src="'../../../static/img/'+item.cover" class="img-rounded img-responsive">
+					<h5 class="text-center">用户id{{item.user_id}}</h5>
 				</div>
 				<div class="col-md-10 col-ms-9 col-xs-9">
-					<h4>{{item.title}}</h4>
-					<small><b>{{item.date}}</b></small>
+					<h4>{{item.content}}</h4>
+           <span>{{item.summary}}</span>
+					<small>
+
+            <b>时间戳{{item.create_ad}}</b>
+          </small>
 					<br />
-					<span><a :href="item.url">详情</a></span>
+					<span><a :href="item.create_ad">详情</a></span>
 				</div>
 			</li>
+
+
 		</ul>
 		<div class="sdl col-md-12 col-ms-12 col-xs-12">
 			<button class="btn-default btn btn-info text-center" @click="loading">加载更多</button>
 			<button class="btn-default btn btn-info text-center" @click="cancel" v-if="num>6">取消上一步</button>
 		</div>
-		
+
 	</div>
 </template>
 
@@ -34,6 +39,7 @@
 	export default {
 		data() {
 			return {
+        category:[],
 				num: 4,
 				sum: 5,
 			}
@@ -41,15 +47,37 @@
 		methods:{
 			loading(){
 				this.num += this.sum
-				
+
 			},
 			cancel(){
 				if(!this.num <=5){
 					this.num -= this.sum
-					
-				}	
+
+				}
 			},
-		}
+		},
+		mounted: function() {
+			let _this = this;
+		//最新注册的用户信息
+		this.axios.post('http://47.107.63.20:3000/category',{
+		  sta: 200
+		})
+		.then(response => {
+			_this.category = response.data
+      console.log(_this.category)
+		})
+     this.axios.post('http://47.107.63.20:3000/artivcle',{
+      sta: 200
+    })
+    .then(response => {
+      	_this.$store.commit('SAVE_ARTIVCLE',response.data)
+      console.log(response.data)
+    })
+
+		},
+
+
+
 	}
 </script>
 
@@ -77,12 +105,12 @@
 		margin: 0px;
 		padding: 0px;
 	}
-	
+
 	._new li {
 		padding: 10px 10px 0 0;
 		border-bottom: 1px solid #EAEAEA;
 	}
-	
+
 	._new h4 {
 		margin-top: 0px;
 		margin-bottom: 5px;
@@ -102,6 +130,6 @@
 	._cla-box li {
 		width: 18%;
 		font-size: 8px;
-	}	
+	}
 	}
 </style>

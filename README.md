@@ -8,7 +8,7 @@
 ## Build Setup
 
 ``` bash
-# install dependencies
+# install dependencies							13699817056
 npm install
 
 # 已安装的依赖
