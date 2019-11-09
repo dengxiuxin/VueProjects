@@ -10,15 +10,15 @@
 
 			<li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in this.$store.state.artivcle" v-if='index<=num' :key="index">
 				<div class="col-md-2 col-ms-3 col-xs-3">
-					<img :src="'../../../static/img/'+item.cover" class="img-rounded img-responsive">
-					<h5 class="text-center">用户id{{item.user_id}}</h5>
+					<img :src="'../../../static/userimg/'+item.logo" class="img-rounded img-responsive">
+					<h5 class="text-center">{{item.nickname}}</h5>
 				</div>
 				<div class="col-md-10 col-ms-9 col-xs-9">
-					<h4>{{item.content}}</h4>
-           <span>{{item.summary}}</span>
+					<h4>{{item.summary}}</h4>
+           <span>{{item.content}}</span>
 					<small>
 
-            <b>时间戳{{item.create_ad}}</b>
+            <b>{{new Date(item.create_ad).toLocaleString()}}</b>
           </small>
 					<br />
 					<span><a :href="item.create_ad">详情</a></span>
@@ -34,7 +34,6 @@
 
 	</div>
 </template>
-
 <script>
 	export default {
 		data() {
@@ -47,7 +46,8 @@
 		methods:{
 			loading(){
 				this.num += this.sum
-
+        var timestamp1 = (new Date()).valueOf();
+        console.log(timestamp1)
 			},
 			cancel(){
 				if(!this.num <=5){
