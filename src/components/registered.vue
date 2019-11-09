@@ -186,7 +186,7 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             let _this = this;
-            this.axios.post('http://47.107.63.20:3000/checksubmit', {
+            this.axios.post('http://127.0.0.1:3000/checksubmit', {
                 email: _this.registform.email,
                 checkPass: _this.registform.checkPass,
                 age: _this.registform.age,

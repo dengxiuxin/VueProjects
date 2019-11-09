@@ -26,4 +26,7 @@
 </script>
 
 <style>
+	p,h3,span{
+		font-family: arial;
+	}
 </style>

@@ -1,19 +1,23 @@
 <template>
   <div>
+
     <el-collapse-transition>
       <div class="col-md-12 col-xs-12 col-sm-12 text-center _res" v-if="isShow">
         <h3>你的知音都在这里</h3>
         <p>表达网民立场，记录个人生活，聚集意见领袖，众多草根精英，以我们的观点影响社会的进程 。</p>
         <hr>
         <router-link to="/registered"><button type="button" class="btn btn-primary">注册博客</button></router-link>
-        <button type="button" class="btn btn-primary" @click="show"><span class="glyphicon glyphicon-refresh"></span></button>
+        <button type="button" class="btn btn-primary" style="cursor: pointer;" @click="show"><span class="glyphicon glyphicon-refresh"></span></button>
       </div>
     </el-collapse-transition>
 
     <el-collapse-transition>
       <div class="col-md-12 col-xs-12 col-sm-12 _res" v-if="isShows">
         <span class="login_logo"><i class="el-icon-loading"></i>登录</span>
-        <el-form :model="loginForm" status-icon :rules="rules" ref="loginForm" label-width="55px" class="demo-loginForm ">
+
+
+
+		<el-form :model="loginForm" status-icon :rules="rules" ref="loginForm" label-width="55px" class="demo-loginForm ">
           <el-form-item label="账号" prop="username">
             <el-input type="text" v-model="loginForm.username" placeholder="请输入邮箱账号" autocomplete="off"></el-input>
           </el-form-item>
@@ -23,10 +27,11 @@
           <el-form-item class="log_btn">
             <el-button type="primary" @click="submitForm('loginForm')" class="login_button">登录</el-button>
             <el-button @click="resetForm('loginForm')" class="login_button">重置</el-button>
-            <el-button @click="shows" class="res_button"><span class="glyphicon glyphicon-refresh"></span></el-button>
+
+            <el-button @click="shows" class="res_button" style="cursor: pointer;"><span class="glyphicon glyphicon-refresh"></span></el-button>
           </el-form-item>
         </el-form>
-      </div>
+	  </div>
     </el-collapse-transition>
 
     <el-collapse-transition>
@@ -34,7 +39,7 @@
         <div style="height: 20px;"></div>
         <div class="user_box">
           <div class="user_img" style="padding: 0 60px 0px 60px; margin-top: -30px;">
-            <img :src="'../../../static/userimg/'+$store.state.userinfo.logo" width="100%" height="100%" style="padding: 3px; border-radius: 50%;"
+            <img :src="$store.state.userinfo.logo" width="100%" height="100%" style="padding: 3px; border-radius: 50%;"
               class="img-thumbnail" />
           </div>
           <h3 class="text-center" style="color: #f2a11c;">{{$store.state.userinfo.nickname}}</h3>
@@ -51,9 +56,9 @@
     <div class="col-md-12 col-xs-12 col-sm-12">
       <h3>新秀<img src="../../../static/img/xuankuang_.png" style="float: right; width: 25px; height: 25px;"></h3>
       <ul class="row _figure _fih">
-        <li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in this.$store.state.newuserinfo" v-if='index<=6'
+        <li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in this.$store.state.newuserinfo" v-if='index<=4' 
           :key="index">
-          <img :src="'../../../static/userimg/'+item.logo" class="img-thumbnail">
+          <img :src="item.logo" class="img-thumbnail">
           <h5>{{item.username}}</h5><span class="label label-danger">New</span>
           <small>
             {{item.signature}}
@@ -66,7 +71,7 @@
     <div class="col-md-12 col-xs-12 col-sm-12">
       <h3>热文榜<img src="../../../static/img/bianqian_.png" style="float: right; width: 25px; height: 25px;"></h3>
       <ul class="row _figure _s">
-        <li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in this.$store.state.tops.data" v-if='index<=15'
+        <li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in this.$store.state.tops.data" v-if='index<=8'
           :key="index">
           <p class="label label-danger">{{index+1}}</p>
           <p class="_b">
@@ -152,7 +157,7 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             let _this = this;
-            this.axios.post('http://47.107.63.20:3000/checklogin', {
+            this.axios.post('http://127.0.0.1:3000/checklogin', {
                 username: _this.loginForm.username,
                 password: _this.loginForm.password
               })

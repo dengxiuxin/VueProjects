@@ -30,7 +30,7 @@
 								<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
 							</span>
 						</div>
-					</form>
+					</form> 
 				</div>
 			</div>
 		</nav>

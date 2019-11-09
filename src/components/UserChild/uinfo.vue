@@ -3,14 +3,17 @@
     <div class="col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
 
       <div class="col-md-3 col-sm-12 col-xs-12">
-        <div class="row">
-          <div class="thumbnail">
-            <img :src="'../../../static/userimg/'+$store.state.userinfo.logo">
-            <div>
-              <button type="button" class="btn btn-info btn-sm">修改头像</button>
-            </div>
-          </div>
+
+        <div class="userimg">
+          <el-upload class="avatar-uploader" action="api/image" :data="uploadData" :show-file-list="false" :on-success="handleAvatarSuccess"
+            :before-upload="beforeAvatarUpload">
+            <img v-if="imageUrl" :src="imageUrl" class="avatar">
+            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+          </el-upload>
         </div>
+
+
+
       </div>
       <div class="col-md-9 col-sm-12 col-xs-12" style="padding: 0px;">
         <div style="background-color: #FFFFFF; padding: 15px; margin: 10px; border: 1px solid #9BCEEA; border-radius: 5px;">
@@ -59,19 +62,48 @@
 
 <script>
   export default {
-    name: 'uinfo',
     data() {
       return {
+        imageUrl: JSON.parse(localStorage.getItem('userinfo')).logo,
+        uploadData:JSON.parse(localStorage.getItem('userinfo'))
 
-      }
+      };
     },
     methods: {
 
-    }
+      handleAvatarSuccess(res, file) {
+        console.log(res);
+        console.log(file);
+        console.log(this.uploadData)
+        this.imageUrl = URL.createObjectURL(file.raw);
+      },
+
+      beforeAvatarUpload(file) {
+        const isJPG = file.type === 'image/jpeg';
+        const isLt2M = file.size / 1024 / 1024 < 2;
+
+        if (!isJPG) {
+          this.$message.error('上传头像图片只能是 JPG 格式!');
+        }
+        if (!isLt2M) {
+          this.$message.error('上传头像图片大小不能超过 2MB!');
+        }
+        return isJPG && isLt2M && this.uploadData.user;
+      }
+    },
   }
 </script>
 
 <style scoped>
+  .userimg {
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 50px 0;
+    margin-top: 15px;
+    border: 1px solid #9BCEEA;
+    border-radius: 5px;
+  }
+
   ._thead {
     font-size: 16px;
     font-weight: bold;
@@ -84,4 +116,36 @@
   }
 
   @media (max-width:400px) {}
+</style>
+<style>
+  .avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+  }
+
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+  }
+
+  .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
+
+  .el-upload__input {
+    display: none !important;
+  }
 </style>

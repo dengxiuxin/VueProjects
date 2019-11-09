@@ -20,7 +20,7 @@
 
       <div class="left_info">
         <div class="left_in">
-          <img :src="'../../../static/userimg/'+$store.state.userinfo.logo" class="img-rounded" style="margin-left: 20px; margin-top: 15px;" />
+          <img :src="$store.state.userinfo.logo" class="img-rounded" style="margin-left: 20px; margin-top: 15px;" />
         </div>
         <div class="left_fo">
           <span>你好!</span><span>
