@@ -1,23 +1,16 @@
 <template>
   <div>
-    <div class="col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
 
-      <div class="col-md-3 col-sm-12 col-xs-12">
-
-        <div class="userimg">
-          <el-upload class="avatar-uploader" action="api/image" :data="uploadData" :show-file-list="false" :on-success="handleAvatarSuccess"
-            :before-upload="beforeAvatarUpload">
-            <img v-if="imageUrl" :src="imageUrl" class="avatar">
-            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-          </el-upload>
-        </div>
-
-
-
-      </div>
       <div class="col-md-9 col-sm-12 col-xs-12" style="padding: 0px;">
         <div style="background-color: #FFFFFF; padding: 15px; margin: 10px; border: 1px solid #9BCEEA; border-radius: 5px;">
           <ul style="padding-left: 5px;">
+			  <li>
+				  <el-upload class="avatar-uploader" action="api/image" :data="uploadData" :show-file-list="false" :on-success="handleAvatarSuccess"
+				    :before-upload="beforeAvatarUpload">
+				    <img v-if="imageUrl" :src="imageUrl" class="avatar">
+				    <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+				  </el-upload>
+			  </li>
             <li class="_thead">用户基本信息</li>
             <li>
               <b class="panel-info">姓名：</b>
@@ -29,7 +22,7 @@
             </li>
             <li>
               <b class="panel-info">个人说明：</b>
-              {{$store.state.userinfo.signature}}
+              {{$store.state.userinfo.personal}}
             </li>
             <li><b class="panel-info">账号状态：</b>
               {{$store.state.userinfo.status}}
@@ -49,14 +42,10 @@
             <li>
               <button type="button" class="btn btn-primary btn-sm">修改信息</button>
               <button type="button" class="btn btn-default btn-sm" disabled="disabled">修改密码</button>
-
             </li>
           </ul>
-
-
         </div>
       </div>
-    </div>
   </div>
 </template>
 
@@ -95,14 +84,14 @@
 </script>
 
 <style scoped>
-  .userimg {
+ /* .userimg {
     background-color: #FFFFFF;
     text-align: center;
     padding: 50px 0;
     margin-top: 15px;
     border: 1px solid #9BCEEA;
     border-radius: 5px;
-  }
+  } */
 
   ._thead {
     font-size: 16px;

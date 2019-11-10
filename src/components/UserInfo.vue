@@ -2,17 +2,6 @@
   <div class="hello">
     <div class="header col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <img :src="'../../static/img/'+img" width="50px" @click="lfte" />
-
-      <el-badge :value="12" class="item">
-        <el-button size="small">评论</el-button>
-      </el-badge>
-      <el-badge :value="3" class="item">
-        <el-button size="small">回复</el-button>
-      </el-badge>
-      <el-badge :value="1" class="item" type="primary">
-        <el-button size="small">我的</el-button>
-      </el-badge>
-
     </div>
 
     <transition name="el-zoom-in-left">

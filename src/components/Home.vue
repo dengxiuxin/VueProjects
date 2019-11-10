@@ -61,38 +61,28 @@
   export default {
     name: 'Home',
     data() {
-      return {
+      return { 
 
       }
 
     },
     mounted: function() {
       let _this = this;
-      this.axios.get('https://www.easy-mock.com/mock/5d23aa42ab7a6e3db3b0b1f9/myvue/imgs')
-        .then(response => {
-          _this.$store.commit('SAVE_NEWSINFO', response.data.result)
-        }),
-        this.axios.get('https://www.easy-mock.com/mock/5d23aa42ab7a6e3db3b0b1f9/myvue/top')
-        .then(response => {
-          _this.$store.commit('SAVE_TOPINFO', response.data.result)
-        }),
-        this.axios.get('https://www.easy-mock.com/mock/5d23aa42ab7a6e3db3b0b1f9/myvue/news')
-        .then(response => {
-          _this.$store.commit('SAVE_KEJIINFO', response.data.result)
-        }),
         //最新注册的用户信息
-        this.axios.post('/api/shuffling', {
-          sta: 200
-        })
-        .then(response => {
-
-          _this.$store.commit('SAVE_NEWUSERINFO', response.data)
-        })
+        // this.axios.post('/api/shuffling', {
+        //   sta: 200
+        // })
+        // .then(response => {
+        //   _this.$store.commit('SAVE_NEWUSERINFO', response.data)
+        // })
     },
   }
 </script>
 
 <style scoped>
+  ._box_content{
+	  margin-top: 30px;
+  }
   ._box {
     border-right: 1px solid #EAEAEA;
     margin: 0;
@@ -139,9 +129,9 @@
 
   .lins {
 
-    margin-bottom: 1px !important;
+    margin-bottom: 0px !important;
     height: 4px;
-    background-color: #999999;
+    background-color: #000000;
   }
 
   ._plate-head {

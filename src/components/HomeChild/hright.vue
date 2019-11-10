@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <el-collapse-transition>
       <div class="col-md-12 col-xs-12 col-sm-12 text-center _res" v-if="isShow">
         <h3>你的知音都在这里</h3>
@@ -32,6 +31,7 @@
           </el-form-item>
         </el-form>
 	  </div>
+	  
     </el-collapse-transition>
 
     <el-collapse-transition>
@@ -52,7 +52,7 @@
     </el-collapse-transition>
 
 
-    <p class="_line"></p>
+    <!-- <p class="_line"></p>
     <div class="col-md-12 col-xs-12 col-sm-12">
       <h3>新秀<img src="../../../static/img/xuankuang_.png" style="float: right; width: 25px; height: 25px;"></h3>
       <ul class="row _figure _fih">
@@ -67,8 +67,9 @@
 
       </ul>
     </div>
-    <p class="_line"></p>
-    <div class="col-md-12 col-xs-12 col-sm-12">
+    <p class="_line"></p> -->
+	
+    <!-- <div class="col-md-12 col-xs-12 col-sm-12">
       <h3>热文榜<img src="../../../static/img/bianqian_.png" style="float: right; width: 25px; height: 25px;"></h3>
       <ul class="row _figure _s">
         <li class="col-md-12 col-ms-12 col-xs-12" v-for="(item,index) in this.$store.state.tops.data" v-if='index<=8'
@@ -80,7 +81,7 @@
           </p>
         </li>
       </ul>
-    </div>
+    </div> -->
   </div>
 
 </template>
@@ -247,8 +248,9 @@
   }
 
   ._res {
-    background-color: #F6F6F6;
+    background-color: #EDF5FF;
     border-radius: 2px;
+	margin-top: 7px;
     padding-top: 10px;
     padding-bottom: 10px;
   }

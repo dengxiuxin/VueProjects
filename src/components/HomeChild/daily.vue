@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="_cla-box">
-      <li v-for="(item,index) in category"><a href="#">{{item.title}}</a></li>
+      <li><a href="#"></a></li>
     </ul>
     <hr style="background-color: #999999; margin: 0px; padding: 0px;" />
 
@@ -46,7 +46,6 @@
   export default {
     data() {
       return {
-        category: [],
         num: 3,
         sum: 4,
       }
@@ -75,14 +74,6 @@
     mounted: function() {
       let _this = this;
       //最新注册的用户信息
-      this.axios.post('http://127.0.0.1:3000/category', {
-          sta: 200
-        })
-        .then(response => {
-          _this.category = response.data
-
-
-        })
       this.axios.post('http://127.0.0.1:3000/artivcle', {
           sta: 200
         })

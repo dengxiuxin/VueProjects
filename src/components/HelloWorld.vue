@@ -51,18 +51,13 @@
 		data() {
 			return {
 				titles: [{
-						name: '主页',
+						name: '博客主页',
 						url: '/home'
 					},
 					{
-						name: '学习资料',
-						url: '/Materials'
-					},
-					{
-						name: '博客中心',
-						url: '/UserInfo'
-					},
-
+						name: 'Egret项目',
+						url: '/Egret'
+					}
 				],
 				uu:'',
 			}
@@ -72,6 +67,9 @@
 </script>
 
 <style scoped>
+	.tou_bu {
+		background-color:#ffffff;
+	}
 	.navbar-brand {
 		padding: 0px;
 	}
