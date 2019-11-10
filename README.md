@@ -1,6 +1,7 @@
 # kejidaima
 
 > 未来是一场梦
+> VUE单页应用
 
 ![Image text](https://github.com/dengxiuxin/VueProjects/blob/master/static/img/kejidiama.png)
 ## 响应式
@@ -86,3 +87,19 @@ npm run build --report
 # 在服务端引入cors实现跨域
 ```
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+```
+## 2019-11-10 模块更新 大改
+# Init Component Info
+# 一级模板文件
+#   Main.Vue --> 首页头部导航
+#   Home.Vue --> 主体容器
+#       ~ HomeChild --> 主体容器的子组件文件夹
+#   Egret.vue --> 白鹭游戏展示页面
+# 　registered.vue --> 用户注册页面
+#   undefind.vue --> 404页面
+#   bolg.vue --> 博客详情页
+#       ~ UserChild --> 用户子组件文件夹
+#  
+
+```

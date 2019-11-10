@@ -1,5 +1,5 @@
 body {
-	background: url(../img/shuiye.gif);
+	/* background: url(../img/shuiye.gif); */
 	background-color: rgba(11, 137, 224, 0.8);
 	background-size: 35% 35%;
 }
@@ -28,7 +28,7 @@ a {
 	}
 
 	body {
-		background: url(../img/shuiye.gif);
+		/* background: url(../img/shuiye.gif); */
 		background-color: rgba(255, 255, 255, 1);
 		background-size: 25% 25%;
 	}

@@ -1,14 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const HelloWorld = () => import('@/components/HelloWorld')
+const Main = () => import('@/components/Main')
 const Home = () => import('@/components/Home')
 const Egret = () => import('@/components/Egret')
-const UserInfo = () => import('@/components/UserInfo')
 const undefind = () => import('@/components/undefind')
 const registered = () => import('@/components/registered')
 const bolg = () => import('@/components/bolg')
-
 Vue.use(Router)
 
 export default new Router({
@@ -20,8 +18,8 @@ export default new Router({
 		},
 		{
 			path: '/',
-			name: 'HelloWorld',
-			component: HelloWorld,
+			name: 'Main',
+			component: Main,
 			children: [{
 					path: '/Home',
 					component: Home
@@ -29,10 +27,6 @@ export default new Router({
 				{
 					path: '/Egret',
 					component: Egret
-				},
-				{
-					path: '/UserInfo',
-					component: UserInfo
 				},
 				{
 					path: '/registered',

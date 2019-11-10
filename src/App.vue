@@ -36,4 +36,32 @@
 	span {
 		font-family: arial;
 	}
+	.el-dialog {
+		width: 30%;
+	}
+	@media (max-width:1050px) {
+		.el-dialog {
+			width: 40%;
+		}
+	}
+	@media (max-width:768px) {
+		.el-dialog {
+			width: 50%;
+		}
+	}
+	@media (max-width:610px) {
+		.el-dialog {
+			width: 60%;
+		}
+	}
+	@media (max-width:510px) {
+		.el-dialog {
+			width: 80%;
+		}
+	}
+	@media (max-width:380px) {
+		.el-dialog {
+			width: 90%;
+		}
+	}
 </style>

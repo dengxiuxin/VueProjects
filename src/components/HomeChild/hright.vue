@@ -1,5 +1,12 @@
 <template>
   <div>
+			<el-dialog :visible.sync="dialogVisible">	 
+				    <div style="height: 550px;">
+						<uinfo></uinfo>	
+					</div>
+			</el-dialog>
+			
+			
     <el-collapse-transition>
       <div class="col-md-12 col-xs-12 col-sm-12 text-center _res" v-if="isShow">
         <h3>你的知音都在这里</h3>
@@ -38,19 +45,19 @@
       <div class="col-md-12 col-xs-12 col-sm-12 _res" v-if="isuser">
         <div style="height: 20px;"></div>
         <div class="user_box">
-          <div class="user_img" style="padding: 0 60px 0px 60px; margin-top: -30px;">
+          <div class="user_img" style="text-align: center; margin-top: -30px;">
             <img :src="$store.state.userinfo.logo" width="100%" height="100%" style="padding: 3px; border-radius: 50%;"
               class="img-thumbnail" />
           </div>
           <h3 class="text-center" style="color: #f2a11c;">{{$store.state.userinfo.nickname}}</h3>
           <div class="text-center">
-            <button type="button" class="btn btn-info" style="margin-right: 10px;" @click="bloginfo">博客信息</button>
-            <button type="button" class="btn btn-info" style="margin-left: 10px;" @click="outlogin">退出登录</button>
+            <button type="button" class="btn btn-primary  btn-sm"  @click="dialogVisible = true">博客信息</button>
+            <button type="button" class="btn btn-primary  btn-sm"  @click="outlogin">退出登录</button>
           </div>
         </div>
       </div>
     </el-collapse-transition>
-
+		
 
     <!-- <p class="_line"></p>
     <div class="col-md-12 col-xs-12 col-sm-12">
@@ -89,9 +96,10 @@
 <script>
   export default {
     data() {
-
+		
       //表单数据
       return {
+				dialogVisible: false,
         isShow: true,
         isShows: false,
         isuser: false,
@@ -224,6 +232,8 @@
   }
 
   .user_img img {
+	width: 100px;
+	height: 100px;
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
   }
 
