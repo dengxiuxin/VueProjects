@@ -56,7 +56,7 @@
           <h3 class="text-center" style="color: #f2a11c;">{{$store.state.userinfo.nickname}}</h3>
           <div class="text-center">
 			<button type="button" class="btn btn-info  btn-sm" @click="addbolg">发布文章</button>
-			<button type="button" class="btn btn-success  btn-sm">我的文章</button>
+			<button type="button" class="btn btn-success  btn-sm" disabled="disabled">我的文章</button>
 			<p></p>
             <button type="button" class="btn btn-primary  btn-sm"  @click="dialogVisible = true">博客信息</button>
             <button type="button" class="btn btn-danger  btn-sm"  @click="outlogin">退出登录</button>

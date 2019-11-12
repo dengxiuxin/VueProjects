@@ -4,7 +4,20 @@
 			<!-- 大模块 -->
 			
 			<div class="container">
-				<div class="con_box">
+				<div class="row" v-for="item in titles" :key="item.id">
+				  <div class="col-sm-6 col-md-4 col-lg-4 col-xs-12" >
+				    <div class="thumbnail">
+				      <img src="https://ss1.bdstatic.com/6OF1bjeh1BF3odCf/it/u=2748088368,3840156617&fm=74&app=80&f=PNG&size=f121,121?sec=1880279984&t=0ac42648ef891b44b9b1359dc78cf5d5" alt="egret游戏">
+				      <div class="caption">
+				        <a href="/egret/blackwhite/index.html"><h3>{{item.title}}</h3></a>
+				        <p>{{item.name}}</p>
+				        <p><a href="/egret/blackwhite/index.html" class="btn btn-primary" role="button">开始游戏</a> <a href="#"  class="btn btn-default " disabled="disabled" role="button">源码下载</a></p>
+				      </div>
+				    </div>
+				  </div>
+				  </div>
+			</div>
+				<!-- <div class="con_box">
 					<ul class="row con_text">
 						<li class="con_box_s col-lg-12 col-md-12 col-sm-12 col-xs-12" v-for="item in titles" :key="item.id">
 							<div class="content_box">
@@ -19,7 +32,7 @@
 						</li>
 					</ul>
 				</div>
-			</div>
+			</div> -->
 		</div>
 				
 		<router-view >
@@ -33,7 +46,7 @@
 		data () { 
 			return {
 				titles:[
-						{title:'别踩白块儿',name:'黑白方块'},
+						{title:'别踩白块儿',name:'这个黑白方块游戏的发开源码，带注释版！欢迎下载学习！'},
 						],
 			
 			}

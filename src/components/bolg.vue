@@ -105,10 +105,11 @@
 
   ._plate-head {
     background-color: #FFFFFF;
+		margin-top: 25px;
   }
 
   .lins {
-    margin-bottom: 1px !important;
+    margin-bottom: 0px !important;
     height: 4px;
     background-color: #999999;
   }
