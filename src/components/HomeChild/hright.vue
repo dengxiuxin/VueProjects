@@ -5,14 +5,18 @@
 						<uinfo></uinfo>	
 					</div>
 			</el-dialog>
-			
+			<el-dialog :visible.sync="dialogres">
+				    <div style="height: 750px;">
+						<registered></registered>
+					</div>
+			</el-dialog>
 			
     <el-collapse-transition>
       <div class="col-md-12 col-xs-12 col-sm-12 text-center _res" v-if="isShow">
         <h3>你的知音都在这里</h3>
         <p>表达网民立场，记录个人生活，聚集意见领袖，众多草根精英，以我们的观点影响社会的进程 。</p>
         <hr>
-        <router-link to="/registered"><button type="button" class="btn btn-primary">注册博客</button></router-link>
+        <button type="button" class="btn btn-primary" @click="dialogres = true">注册博客</button>
         <button type="button" class="btn btn-primary" style="cursor: pointer;" @click="show"><span class="glyphicon glyphicon-refresh"></span></button>
       </div>
     </el-collapse-transition>
@@ -51,8 +55,11 @@
           </div>
           <h3 class="text-center" style="color: #f2a11c;">{{$store.state.userinfo.nickname}}</h3>
           <div class="text-center">
+			<button type="button" class="btn btn-info  btn-sm" @click="addbolg">发布文章</button>
+			<button type="button" class="btn btn-success  btn-sm">我的文章</button>
+			<p></p>
             <button type="button" class="btn btn-primary  btn-sm"  @click="dialogVisible = true">博客信息</button>
-            <button type="button" class="btn btn-primary  btn-sm"  @click="outlogin">退出登录</button>
+            <button type="button" class="btn btn-danger  btn-sm"  @click="outlogin">退出登录</button>
           </div>
         </div>
       </div>
@@ -99,7 +106,8 @@
 		
       //表单数据
       return {
-				dialogVisible: false,
+		dialogres:false,
+		dialogVisible: false,
         isShow: true,
         isShows: false,
         isuser: false,
@@ -138,9 +146,9 @@
 
     },
     methods: {
-      bloginfo (){
-          this.$router.push({path:'/UserInfo'});
-      },
+		addbolg(){
+			this.$router.push({path:'/addblog'});
+		},
       outlogin() {
         //退出登录
         this.isShow = true,

@@ -21,6 +21,13 @@ import axios from 'axios'
 Vue.prototype.axios=axios
 //引入axios
 
+import VueQuillEditor from 'vue-quill-editor' //富文本编辑器
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+  
+Vue.use(VueQuillEditor);
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import '../static/css/style.css';
@@ -40,15 +47,16 @@ const newsby = () => import('./components/HomeChild/newsby.vue')
 const daily = () => import('./components/HomeChild/daily.vue')
 const hright = () => import('./components/HomeChild/hright.vue')
 
-const addblog = () => import('./components/UserChild/addblog.vue')
+const editor = () => import('./components/UserChild/editor.vue')
 const uinfo = () => import('./components/UserChild/uinfo.vue')
+const registered = () => import('./components/UserChild/registered.vue')
 // 声明子组件
 Vue.component('newsby',newsby);
 Vue.component('daily',daily);
 Vue.component('hright',hright);
-Vue.component('addblog',addblog);
 Vue.component('uinfo',uinfo);
-
+Vue.component('registered',registered);
+Vue.component('editor',editor);
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

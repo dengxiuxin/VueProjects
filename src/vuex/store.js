@@ -11,7 +11,6 @@ const state = {
 const mutations = {
   SAVE_USERINFO(state,userinfo){
     state.userinfo = userinfo
-	console.log(userinfo)
   },
   
   SAVE_ARTIVCLE(state,artivcle){

@@ -5,8 +5,8 @@ const Main = () => import('@/components/Main')
 const Home = () => import('@/components/Home')
 const Egret = () => import('@/components/Egret')
 const undefind = () => import('@/components/undefind')
-const registered = () => import('@/components/registered')
 const bolg = () => import('@/components/bolg')
+const addblog = () => import('@/components/addblog')
 Vue.use(Router)
 
 export default new Router({
@@ -29,12 +29,12 @@ export default new Router({
 					component: Egret
 				},
 				{
-					path: '/registered',
-					component: registered
-				},
-				{
 					path: '/bolg',
 					component: bolg
+				},
+				{
+					path: '/addblog',
+					component: addblog
 				},
 				{
 					path: '*',

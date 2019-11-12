@@ -21,16 +21,21 @@
             <h3>{{shopid.title}}</h3>
             <h5>{{shopid.summary}}</h5>
             <h6 style="float: right;">
-              <b>{{new Date(shopid.create_ad).toLocaleString()}}</b>&nbsp;&nbsp;
+              <span>{{shopid.cerate_ad}}</span>&nbsp;&nbsp;
               <a class="nickname-a">{{shopid.nickname}}</a>&nbsp;&nbsp;
               <span>阅读数：11</span>
             </h6>
           </div>
           <div class="col-md-12 col-xs-12 col-sm-12 text-center" style="padding: 15px;">
-            <img :src="'../../static/img/'+shopid.cover" style="width: 100%;">
+            <!-- <img :src="'../../static/img/'+shopid.cover" style="width: 100%;"> -->
           </div>
           <div class="col-md-12 col-xs-12 col-sm-12">
-            <p style="text-indent:2em; font-size: 21px;">{{shopid.content}}</p>
+						
+						<div class="ql-container ql-snow">
+						    <div class="ql-editor" style="height: auto;">
+										<div v-html="shopid.content"></div>
+						    </div>
+						</div>
           </div>
 
         </div>
@@ -59,19 +64,18 @@
 
     },
     methods: {
-
     },
     mounted: function() {
       let _this = this;
-      
+		
        
-        //最新注册的用户信息
-        this.axios.post('http://127.0.0.1:3000/alluserinfo', {
-          sta: 200
-        })
-        .then(response => {
-          _this.$store.commit('SAVE_NEWUSERINFO', response.data)
-        })
+        // //最新注册的用户信息
+        // this.axios.post('http://127.0.0.1:3000/alluserinfo', {
+        //   sta: 200
+        // })
+        // .then(response => {
+        //   _this.$store.commit('SAVE_NEWUSERINFO', response.data)
+        // })
     },
   }
 </script>

@@ -18,6 +18,7 @@ npm install
 	vue-router	axios
 	vuex		vue-resource
 	element-ui
+	vue-quill-editor
 
 # serve with hot reload at localhost:8080
 npm run dev
@@ -91,7 +92,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ```
 ## 2019-11-10 模块更新 大改
 # Init Component Info
-# 一级模板文件
+# 模板文件
 #   Main.Vue --> 首页头部导航
 #   Home.Vue --> 主体容器
 #       ~ HomeChild --> 主体容器的子组件文件夹
@@ -100,6 +101,6 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 #   undefind.vue --> 404页面
 #   bolg.vue --> 博客详情页
 #       ~ UserChild --> 用户子组件文件夹
-#  
+#   addbolg --> 写文章
 
 ```

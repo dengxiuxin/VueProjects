@@ -1,45 +1,36 @@
 <template>
   <div>
-    <div class="container-fluid box">
-      <div class="col-md-offset-3 col-md-6 backimg col-xs-12 col-sm-12">
         <div class="heder col-md-12 col-xs-12 col-sm-12">
-          <h1><i class="glyphicon glyphicon-pencil"></i> 用户注册</h1>
+          <h3><i class="glyphicon glyphicon-pencil"></i> 用户注册</h3>
         </div>
         <el-collapse-transition>
-          <div class="col-md-12 col-xs-12 col-sm-12 _res">
-
-            <el-form :model="registform" status-icon :rules="rules" ref="registform" label-width="100px" class="demo-registform">
-
-
+          <div class="col-md-12 col-xs-12 col-sm-12 _res">  
+            <el-form :model="registform" status-icon :rules="rules" ref="registform" label-width="70px" class="demo-registform">
               <el-form-item label="邮箱" prop="email">
                 <el-input type="text" v-model="registform.email" placeholder="请输入邮箱账号" autocomplete="off"></el-input>
               </el-form-item>
-
               <el-form-item label="密码" prop="pass">
                 <el-input type="password" v-model="registform.pass" placeholder="请填写密码" autocomplete="off"></el-input>
               </el-form-item>
               <el-form-item label="确认密码" prop="checkPass">
                 <el-input type="password" v-model="registform.checkPass" placeholder="请确认密码" autocomplete="off"></el-input>
               </el-form-item>
-
               <el-form-item label="真实姓名" prop="username">
                 <el-input type="text" v-model="registform.username" placeholder="请输入真实姓名" autocomplete="off"></el-input>
               </el-form-item>
-
               <el-form-item label="用户昵称" prop="nickname">
                 <el-input type="text" v-model="registform.nickname" placeholder="请输入用户昵称" autocomplete="off"></el-input>
               </el-form-item>
-
               <el-form-item label="用户头像" prop="logo">
                 <el-radio-group v-model="registform.logo">
-                <el-radio label="1.png"><img src="../../static/userimg/1.png" width="30px"></el-radio>
-                <el-radio label="2.png"><img src="../../static/userimg/2.png" width="30px"></el-radio>
-                <el-radio label="3.png"><img src="../../static/userimg/3.png" width="30px"></el-radio>
-                <el-radio label="4.png"><img src="../../static/userimg/4.png" width="30px"></el-radio>
-                <el-radio label="5.png"><img src="../../static/userimg/5.png" width="30px"></el-radio>
-                <el-radio label="6.png"><img src="../../static/userimg/6.png" width="30px"></el-radio>
-                <el-radio label="7.png"><img src="../../static/userimg/7.png" width="30px"></el-radio>
-                <el-radio label="8.png"><img src="../../static/userimg/8.png" width="30px"></el-radio>
+                <el-radio label="1.png"><img src="../../../static/userimg/1.png" width="30px"></el-radio>
+                <el-radio label="2.png"><img src="../../../static/userimg/2.png" width="30px"></el-radio>
+                <el-radio label="3.png"><img src="../../../static/userimg/3.png" width="30px"></el-radio>
+                <el-radio label="4.png"><img src="../../../static/userimg/4.png" width="30px"></el-radio>
+                <el-radio label="5.png"><img src="../../../static/userimg/5.png" width="30px"></el-radio>
+                <el-radio label="6.png"><img src="../../../static/userimg/6.png" width="30px"></el-radio>
+                <el-radio label="7.png"><img src="../../../static/userimg/7.png" width="30px"></el-radio>
+                <el-radio label="8.png"><img src="../../../static/userimg/8.png" width="30px"></el-radio>
                 </el-radio-group>
               </el-form-item>
 
@@ -66,10 +57,6 @@
             </el-form>
           </div>
         </el-collapse-transition>
-      </div>
-    </div>
-
-
     <router-view></router-view>
   </div>
 </template>
@@ -239,14 +226,31 @@
   .el-radio {
     margin-right: 5px!important;
   }
+  .el-dialog__body {
+	  
+  }
+  .el-dialog__header {
+	padding: 0px;
+  }
+  .el-form-item__label {
+	  text-align: left;
+	  padding-right: 3px;
+  }
+  .el-form-item {
+	  margin-bottom: 20px;
+  }
 </style>
 <style scoped>
-  .box {
+	
+	._res {
+		padding: 0px;
+	}
+/*  .box {
     background-image: url(../../static/img/skyblue.jpg);
     background-size: 100% 100%;
     background-repead: no-repead;
     height: 798px;
-  }
+  } */
 
   .heder {
     font-weight: bold;
