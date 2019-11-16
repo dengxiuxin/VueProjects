@@ -41,9 +41,6 @@
     </div>
 
 
-
-
-
     <router-view></router-view>
     <footer class="footer navbar-fixed-bottom ">
       <div class="container footd">
@@ -62,20 +59,16 @@
     name: 'Home',
     data() {
       return { 
-
+		sum: parseInt(((Math.random()*9+1)*100000))
       }
 
     },
     mounted: function() {
-      let _this = this;
-        //最新注册的用户信息
-        // this.axios.post('/api/shuffling', {
-        //   sta: 200
-        // })
-        // .then(response => {
-        //   _this.$store.commit('SAVE_NEWUSERINFO', response.data)
-        // })
+      
     },
+	methods:{
+		
+	}
   }
 </script>
 

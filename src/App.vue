@@ -37,31 +37,31 @@
 		font-family: arial;
 	}
 	.el-dialog {
-		width: 30%;
+		width: 30%!important;
 	}
 	@media (max-width:1050px) {
 		.el-dialog {
-			width: 40%;
+			width: 40%!important;
 		}
 	}
 	@media (max-width:768px) {
 		.el-dialog {
-			width: 50%;
+			width: 50%!important;
 		}
 	}
 	@media (max-width:610px) {
 		.el-dialog {
-			width: 60%;
+			width: 60%!important;
 		}
 	}
 	@media (max-width:510px) {
 		.el-dialog {
-			width: 80%;
+			width: 80%!important;
 		}
 	}
 	@media (max-width:380px) {
 		.el-dialog {
-			width: 90%;
+			width: 90%!important;
 		}
 	}
 </style>

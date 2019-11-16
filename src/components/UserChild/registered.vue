@@ -86,7 +86,8 @@
       };
 
       return {
-        registform: {
+		  dat: new Date().toLocaleString(),
+          registform: {
           email: '',
           pass: '',
           checkPass: '',
@@ -173,7 +174,7 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             let _this = this;
-            this.axios.post('http://127.0.0.1:3000/checksubmit', {
+            this.axios.post('http://127.0.0.1:3000/checksubmit', { 
                 email: _this.registform.email,
                 checkPass: _this.registform.checkPass,
                 age: _this.registform.age,
@@ -182,18 +183,14 @@
                 gender: _this.registform.gender,
                 signature: _this.registform.signature,
                 logo: _this.registform.logo,
+				dat: _this.date
               })
               .then(response => {
-                console.log('接受到数据！', response.data.exists)
+                console.log('接受到数据！', response.data)
                 if (response.data.exists == 101) {
                   _this.$message({
                     type: 'error',
                     message: '注册失败！ 邮箱已经被注册了~ 亲'
-                  })
-                } else if (response.data.exists == 103) {
-                  _this.$message({
-                    type: 'error',
-                    message: '注册失败！ 真实姓名已存在~ 亲'
                   })
                 } else if (response.data.exists == 200) {
                   _this.$message({
